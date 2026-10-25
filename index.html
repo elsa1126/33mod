@@ -255,7 +255,8 @@ const PAK_TREE = [
   `完成後，檔案會在 ${MODS_DIR} 裡。`,
   '啟動遊戲。',
 ];
-const PAK_REMOVE = '移除：到 ~mods 資料夾把這組 .pak、.ucas、.utoc 三個檔案刪掉。';
+const RM = base => `移除：以後不想用這個 MOD 時，到 ~mods 資料夾把它的三個檔案刪掉就好${base ? `（${base}.pak、${base}.ucas、${base}.utoc）` : '（同名的 .pak、.ucas、.utoc）'}，不會影響其他 MOD。裝著的時候三個檔案要留在 ~mods 裡才有效。`;
+const PAK_REMOVE = RM('');
 const SAVE_PREP = [
   '完全關閉遊戲。',
   'Steam 收藏庫 → 遊戲按右鍵 → 內容 → 一般，關掉「將存檔保留在 Steam 雲端中」。',
@@ -279,17 +280,17 @@ const GUIDES = [
     notes: [SAVE_AFTER] },
   { k: ['使用說明與替換存檔方法'], about: '整合包附的存檔說明：關閉 Steam 雲端、到 %localappdata%\\Sandfall\\Saved 找存檔資料夾、把 EXPEDITION_0.sav 放進去。內容跟上面存檔項目的教學相同，這裡寫得更完整。', steps: [], notes: [] },
 
-  { k: ['升級材料'], about: '所有敵人掉落的升級材料變 3 倍（說明檔寫的是「翻倍」，資料夾名稱是 3 倍）。', steps: PAK_TREE, notes: [PAK_REMOVE] },
-  { k: ['兩倍經驗'], about: '升級需要的經驗值減半，等於經驗兩倍。經驗曲線不是線性的，後期效果有限；已經獲得的經驗不會重算。', steps: PAK_TREE, notes: [PAK_REMOVE] },
-  { k: ['傷害上限顯示'], about: '把傷害上限提高到 99999 的版本，壓縮檔內的檔名是 LowerDamageCap_P。', steps: PAK_TREE, notes: ['跟「傷害上限 999999」只能二選一。', PAK_REMOVE] },
+  { k: ['升級材料'], about: '所有敵人掉落的升級材料變 3 倍（說明檔寫的是「翻倍」，資料夾名稱是 3 倍）。', steps: PAK_TREE, notes: [RM('000_UpgradeMats_P')] },
+  { k: ['兩倍經驗'], about: '升級需要的經驗值減半，等於經驗兩倍。經驗曲線不是線性的，後期效果有限；已經獲得的經驗不會重算。', steps: PAK_TREE, notes: [RM('000_BaguetteRapide_P')] },
+  { k: ['傷害上限顯示'], about: '把傷害上限提高到 99999 的版本，壓縮檔內的檔名是 LowerDamageCap_P。', steps: PAK_TREE, notes: ['跟「傷害上限 999999」只能二選一。', RM('LowerDamageCap_P')] },
   { k: ['傷害上限999999'], about: '把傷害上限提高到 999999（賣家 2026 更新版本），內容沒有解壓確認。', steps: PAK_LOOSE, notes: ['跟「傷害上限 99999」只能二選一。', PAK_REMOVE] },
-  { k: ['倒逆著色'], about: '移除「倒逆」狀態的反色畫面效果（InvertedColorEffectBegoneMod），畫面不再變成負片色。', steps: PAK_LOOSE, notes: [PAK_REMOVE] },
-  { k: ['去除汙垢', '去除污垢'], about: '移除角色身上的髒污貼圖（z_BTS_P）。有些服裝 MOD 已經自帶去污垢，重複裝通常沒影響。', steps: PAK_LOOSE, notes: [PAK_REMOVE] },
-  { k: ['商店售賣所有服裝'], about: '讓商人販售所有服裝和髮型（UltimateMerchantsOW），不用全部收集也能用買的。', steps: PAK_LOOSE, notes: ['跟「商店出售所有物品」功能重疊，建議只裝一個。', PAK_REMOVE] },
+  { k: ['倒逆著色'], about: '移除「倒逆」狀態的反色畫面效果（InvertedColorEffectBegoneMod），畫面不再變成負片色。', steps: PAK_LOOSE, notes: [RM('InvertedColorEffectBegoneMod_P')] },
+  { k: ['去除汙垢', '去除污垢'], about: '移除角色身上的髒污貼圖（z_BTS_P）。有些服裝 MOD 已經自帶去污垢，重複裝通常沒影響。', steps: PAK_LOOSE, notes: [RM('z_BTS_P')] },
+  { k: ['商店售賣所有服裝'], about: '讓商人販售所有服裝和髮型（UltimateMerchantsOW），不用全部收集也能用買的。', steps: PAK_LOOSE, notes: ['跟「商店出售所有物品」功能重疊，建議只裝一個。', RM('UltimateMerchantsOW_P')] },
   { k: ['商店出售所有物品'], about: '讓商店販售所有物品（賣家 2026 更新版本），內容沒有解壓確認。', steps: PAK_LOOSE, notes: ['跟「商店售賣所有服裝和髮型」功能重疊，建議只裝一個。', PAK_REMOVE] },
-  { k: ['怪物血量'], about: '所有敵人血量變 2 倍，讓遊戲變難。', steps: PAK_TREE, notes: [PAK_REMOVE] },
-  { k: ['武器升級費用'], about: '武器升級需要的材料減半。', steps: PAK_TREE, notes: [PAK_REMOVE] },
-  { k: ['解鎖技能無需技能點'], about: '學技能不用消耗技能點。', steps: PAK_TREE, notes: [PAK_REMOVE] },
+  { k: ['怪物血量'], about: '所有敵人血量變 2 倍，讓遊戲變難。', steps: PAK_TREE, notes: [RM('Enemy_Hp_x2_P')] },
+  { k: ['武器升級費用'], about: '武器升級需要的材料減半。', steps: PAK_TREE, notes: [RM('Upgrade Weapons Cost Half_P')] },
+  { k: ['解鎖技能無需技能點'], about: '學技能不用消耗技能點。', steps: PAK_TREE, notes: [RM('Unlock Skills Cost 0_P')] },
   { k: ['閃避和格擋'], about: '把閃避和格擋的判定時間拉長（2 倍、3 倍、5 倍三種版本），內容沒有解壓確認。', steps: PAK_LOOSE, notes: ['三個版本只能選一個裝，數字越大越簡單。', PAK_REMOVE] },
   { k: ['自動qte'], about: '把 QTE 自動改成完美判定，內容沒有解壓確認。', steps: PAK_LOOSE, notes: [PAK_REMOVE] },
   { k: ['過場動畫'], about: '解除過場動畫 30 幀的限制，內容沒有解壓確認。', steps: PAK_LOOSE, notes: [PAK_REMOVE] },
@@ -297,7 +298,7 @@ const GUIDES = [
 
   { k: ['Minimap', '小地圖.zip'], about: '在畫面上加入小地圖（Nexus Mods 編號 383）。這個 MOD 需要前置的 dml 才能運作。',
     steps: ['先裝 dml：把 dml 壓縮檔裡的 dml 資料夾整個複製到 ~mods。', `再把 Minimap 壓縮檔裡的 MinimapFx.pak、.ucas、.utoc 三個檔案放進 ${MODS_DIR}。`, '啟動遊戲。'],
-    notes: ['如果沒有出現，到 Nexus Mods 搜尋 Minimap（33 號遠征隊），看作者寫的最新安裝位置。', '小地圖和指南針共用同一個 dml，只要裝一份。'] },
+    notes: ['移除：把 MinimapFx 的三個檔案刪掉；指南針也不用的話，再把 dml 資料夾刪掉。', '如果沒有出現，到 Nexus Mods 搜尋 Minimap（33 號遠征隊），看作者寫的最新安裝位置。', '小地圖和指南針共用同一個 dml，只要裝一份。'] },
   { k: ['Compass', '指南針.zip'], about: '在畫面上加入指南針（Nexus Mods 編號 256）。一樣需要前置的 dml。',
     steps: ['先裝 dml：把 dml 資料夾整個複製到 ~mods（裝過小地圖就不用再放）。', `把 Compass.pak、.ucas、.utoc 三個檔案放進 ${MODS_DIR}。`, '啟動遊戲。'],
     notes: ['如果沒有出現，到 Nexus Mods 搜尋 Compass（33 號遠征隊），看作者寫的最新安裝位置。'] },
@@ -505,7 +506,8 @@ function openTool(i) {
     <h3>${esc(t.title)}</h3>
     <p class="desc">${esc(g.about)}</p>
     ${g.steps.length ? `<div class="label">安裝教學</div><ol class="install">${g.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}
-    ${notes.map(n => `<p class="desc"><b class="warnb">注意：</b>${esc(n)}</p>`).join('')}
+    ${notes.filter(n => !n.startsWith('移除：')).map(n => `<p class="desc"><b class="warnb">注意：</b>${esc(n)}</p>`).join('')}
+    ${notes.filter(n => n.startsWith('移除：')).map(n => `<div class="label">不想用了怎麼移除</div><p class="desc">${esc(n.slice(3))}</p>`).join('')}
     <div class="label">檔案下載</div>
     <div class="rows">${t.sources.map(s => `<div class="row"><span class="ic">${ICON.dl}</span><span class="v"><span>${s.link ? `<a href="${s.link}" target="_blank" rel="noopener">${esc(s.name)}</a>` : esc(s.name)}</span><span class="label">${esc(s.from)} · ${esc(s.size)}</span></span></div>`).join('')}</div>
   `, { close: 'back' });
