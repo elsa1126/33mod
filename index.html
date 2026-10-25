@@ -1,0 +1,674 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<style>
+:root { padding-top: env(safe-area-inset-top, 0px); padding-bottom: env(safe-area-inset-bottom, 0px); }
+body { margin: 0; font-size: 14px; }
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+</style>
+<title>33 號遠征隊服裝 MOD</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@500;600;700&display=swap">
+<style>
+/* 版面：2140 風格的置中窄欄清單，次層內容用從下方蓋上來的面板，主要操作放在底部浮動按鈕列 */
+:root {
+  --bg: #000;
+  --card: #202020;
+  --raised: #323232;
+  --fg: #f5f5f5;
+  --muted: #a5a5a9;
+  --dim: #606062;
+  --line: rgba(255,255,255,.08);
+  --font: "PingFang TC", "Noto Sans TC", "Heiti TC", "Microsoft JhengHei", sans-serif;
+  --col: 420px;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font);
+  font-weight: 600;
+  -webkit-font-smoothing: antialiased;
+}
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--bg); }
+button { font: inherit; color: inherit; background: none; border: 0; cursor: pointer; }
+button:focus-visible, a:focus-visible, input:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; }
+svg { display: block; }
+.wrap {
+  max-width: var(--col);
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 20px 120px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+.top { display: flex; align-items: center; justify-content: space-between; }
+.logo { font-size: 22px; font-weight: 700; letter-spacing: .14em; }
+.logo small { display: block; font-size: 12px; letter-spacing: .04em; color: var(--dim); font-weight: 600; margin-top: 2px; }
+.icon-btn { width: 40px; height: 40px; display: grid; place-items: center; border-radius: 9999px; }
+
+.hero { position: relative; border-radius: 12px; overflow: hidden; background: var(--card); aspect-ratio: 3 / 4; max-width: 100%; }
+.hero img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity .4s; }
+.hero .cap { position: absolute; inset: auto 0 0 0; padding: 60px 18px 18px; background: linear-gradient(transparent, rgba(0,0,0,.88)); display: flex; flex-direction: column; gap: 6px; }
+.hero h2 { margin: 0; font-size: 22px; line-height: 1.5; font-weight: 700; text-wrap: balance; }
+.hero p { margin: 0; font-size: 14px; color: var(--muted); display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.dots { display: flex; justify-content: center; gap: 6px; }
+.dots button { width: 6px; height: 6px; border-radius: 9999px; background: rgba(255,255,255,.18); padding: 0; transition: width .25s, background .25s; }
+.dots button[aria-current="true"] { width: 20px; background: var(--fg); }
+
+.head { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; }
+.head h1 { margin: 0; font-size: 28px; font-weight: 600; }
+.head span { font-size: 14px; color: var(--dim); white-space: nowrap; }
+
+.list { display: flex; flex-direction: column; gap: 10px; }
+.item { display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; padding: 12px 16px 12px 12px; background: var(--card); border-radius: 12px; box-shadow: rgba(0,0,0,.15) 0 2px 8px; }
+.item img { width: 54px; height: 54px; object-fit: cover; border-radius: 8px; flex: none; background: var(--raised); }
+.item .txt { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.item b { font-size: 16px; font-weight: 600; line-height: 1.4; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.item i { font-style: normal; font-size: 13px; color: var(--dim); }
+.item .no { font-size: 14px; color: var(--dim); font-variant-numeric: tabular-nums; flex: none; }
+.pagehead { font-size: 13px; color: var(--dim); letter-spacing: .08em; padding: 10px 2px 0; }
+.empty { color: var(--dim); text-align: center; padding: 40px 0; }
+
+.bar { position: fixed; left: 0; right: 0; bottom: 0; padding: 0 max(16px, env(safe-area-inset-right, 0px)) calc(20px + env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px)); display: flex; justify-content: center; gap: 12px; pointer-events: none; z-index: 20; }
+.bar > * { pointer-events: auto; }
+.round { width: 52px; height: 52px; border-radius: 9999px; background: var(--raised); display: grid; place-items: center; box-shadow: rgba(0,0,0,.5) 0 4px 16px; }
+.pill { height: 52px; padding: 0 26px; border-radius: 60px; background: var(--raised); font-size: 16px; box-shadow: rgba(0,0,0,.5) 0 4px 16px; max-width: 220px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+.scrim { position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 30; opacity: 0; transition: opacity .25s; }
+.scrim.on { opacity: 1; }
+.sheet { position: fixed; left: 50%; bottom: 0; width: min(100%, calc(var(--col) + 24px)); transform: translate(-50%, 100%); transition: transform .3s cubic-bezier(.2,.8,.2,1); background: var(--card); border-radius: 24px 24px 0 0; z-index: 40; display: flex; flex-direction: column; max-height: 88%; }
+.sheet.on { transform: translate(-50%, 0); }
+.sheet.full { height: 92%; max-height: none; }
+.sheet .body { overflow-y: auto; padding: 24px max(20px, env(safe-area-inset-left, 0px)) 8px; display: flex; flex-direction: column; gap: 18px; flex: 1; min-height: 0; }
+.sheet .foot { padding: 10px 0 calc(18px + env(safe-area-inset-bottom, 0px)); display: grid; place-items: center; }
+.sheet h3 { margin: 0; font-size: 20px; font-weight: 700; line-height: 1.45; text-wrap: balance; }
+.label { font-size: 13px; color: var(--dim); }
+
+.opts { display: flex; flex-direction: column; }
+.opt { display: flex; align-items: center; gap: 14px; padding: 14px 2px; font-size: 17px; text-align: left; width: 100%; }
+.opt .cnt { color: var(--dim); font-size: 15px; }
+.opt[aria-pressed="true"] { color: var(--fg); }
+.opt[aria-pressed="false"] { color: var(--muted); }
+.opt .mark { width: 22px; display: grid; place-items: center; }
+
+.shots { display: flex; flex-direction: column; gap: 10px; }
+.shots img { width: 100%; height: auto; border-radius: 12px; background: var(--raised); display: block; }
+.rows { display: flex; flex-direction: column; background: var(--raised); border-radius: 12px; }
+.row { display: flex; gap: 14px; padding: 14px 16px; align-items: flex-start; }
+.row + .row { border-top: 1px solid var(--line); }
+.row .ic { flex: none; padding-top: 2px; }
+.row .v { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.row .v span:first-child { font-size: 15px; line-height: 1.6; overflow-wrap: anywhere; }
+.row a { color: var(--fg); text-decoration: none; }
+.row a:hover { text-decoration: underline; }
+.copy { flex: none; font-size: 13px; color: var(--muted); padding: 4px 10px; border-radius: 9999px; background: var(--card); }
+.desc { font-size: 15px; line-height: 1.75; color: var(--muted); margin: 0; }
+
+.search { display: flex; align-items: center; gap: 10px; margin: 0 max(20px, env(safe-area-inset-left, 0px)) 4px; padding: 0 16px; height: 52px; border-radius: 9999px; background: var(--raised); }
+.search input { flex: 1; min-width: 0; background: none; border: 0; color: var(--fg); font: inherit; font-size: 16px; outline: none; }
+.search input::placeholder { color: var(--dim); }
+.results { display: flex; flex-direction: column; gap: 10px; }
+.results .item { background: var(--raised); }
+
+.install { display: flex; flex-direction: column; gap: 10px; font-size: 15px; line-height: 1.7; color: var(--muted); margin: 0; padding-left: 20px; }
+.install code { font-family: ui-monospace, Menlo, monospace; font-size: 12px; color: var(--fg); overflow-wrap: anywhere; }
+
+.tabs { display: flex; gap: 20px; align-items: baseline; flex-wrap: wrap; }
+.tabs button { font-size: clamp(20px, 6vw, 28px); font-weight: 600; padding: 0; color: var(--dim); white-space: nowrap; }
+.tabs button[aria-selected="true"] { color: var(--fg); }
+.charhead { font-size: 22px; font-weight: 700; padding: 22px 2px 0; }
+.charhead:first-child { padding-top: 0; }
+.tagwarn { background: var(--fg); color: var(--bg); }
+.group { display: flex; flex-direction: column; gap: 10px; }
+.group .gh { display: flex; justify-content: space-between; align-items: baseline; gap: 12px; padding: 10px 2px 0; }
+.group .gh span { font-size: 13px; color: var(--dim); letter-spacing: .08em; }
+.group .gh a { font-size: 13px; color: var(--muted); text-decoration: none; white-space: nowrap; }
+.pk { font: inherit; color: inherit; border: 0; cursor: pointer; display: flex; align-items: center; gap: 14px; width: 100%; text-align: left; padding: 14px 16px; background: var(--card); border-radius: 12px; }
+.pk .ic { flex: none; color: var(--muted); }
+.pk .txt { min-width: 0; flex: 1; display: flex; flex-direction: column; gap: 4px; }
+.pk b { font-size: 16px; font-weight: 600; line-height: 1.4; overflow-wrap: anywhere; }
+.pk i { font-style: normal; font-size: 13px; color: var(--dim); line-height: 1.5; }
+.pk i.warn { color: var(--fg); }
+.pk .sz { flex: none; font-size: 13px; color: var(--dim); font-variant-numeric: tabular-nums; }
+.tag { display: inline-block; font-size: 12px; padding: 1px 8px; border-radius: 9999px; background: var(--raised); color: var(--muted); margin-right: 6px; }
+.dl { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
+.warnb { color: var(--fg); }
+.dupbtn { width: 100%; text-align: left; }
+/* 預覽圖接在檔案卡片下方 */
+.pkimg { width: 100%; height: auto; border-radius: 12px; display: block; background: var(--raised); margin-top: -4px; }
+.note { font-size: 14px; line-height: 1.7; color: var(--muted); margin: 0; }
+
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+
+<div class="wrap">
+  <header class="top">
+    <div class="logo">33MOD<small>光與影：33 號遠征隊</small></div>
+    <button class="icon-btn" id="infoBtn" aria-label="安裝方式">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M12 11v6M12 7.5v.01"/></svg>
+    </button>
+  </header>
+
+  <section>
+    <div class="hero" id="hero"><img id="heroImg" alt=""><div class="cap"><h2 id="heroT"></h2><p id="heroP"></p></div></div>
+  </section>
+  <div class="dots" id="dots"></div>
+
+  <div class="head">
+    <div class="tabs" role="tablist">
+      <button role="tab" id="tabMods" aria-selected="true">服裝 MOD</button>
+      <button role="tab" id="tabPack" aria-selected="false">存檔與工具</button>
+    </div>
+    <span id="status"></span>
+  </div>
+  <div class="list" id="list"></div>
+  <div class="list" id="pack" hidden></div>
+</div>
+
+<nav class="bar">
+  <button class="round" id="filterBtn" aria-label="依角色篩選">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><path d="M4 6h16M7 12h10M10 18h4"/></svg>
+  </button>
+  <button class="pill" id="pageBtn">全部來源</button>
+  <button class="round" id="searchBtn" aria-label="搜尋">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="11" cy="11" r="6.5"/><path d="M16 16l4.5 4.5"/></svg>
+  </button>
+</nav>
+
+<div class="scrim" id="scrim" hidden></div>
+<section class="sheet" id="sheet" role="dialog" aria-modal="true" hidden>
+  <div class="body" id="sheetBody"></div>
+  <div id="sheetExtra"></div>
+  <div class="foot"><button class="round" id="closeBtn" aria-label="關閉"></button></div>
+</section>
+
+<script>
+const MODS = [{"n": 1, "page": 1, "title": "呂涅的漫威爭鋒緋紅女巫制服MOD", "who": "呂涅", "note": "替換了呂涅的默認服裝。", "desc": "《光與影：33號遠征隊》呂涅的漫威爭鋒緋紅女巫制服MOD，這款模組為遊戲角色呂涅添加了一套來自《漫威爭鋒》緋紅女巫的緊身制服，服裝以高叉連體衣作為基底，大面積啞光酒紅色包覆軀幹，線條銳利利落，肩側延伸出尖角護甲。配套長筒手套與腿甲形成上下呼應，暗紅色長斗篷垂墜身後增添氣場。頭飾的雙尖角造型和額間紋飾強化了女巫的奇幻氣質，大面積露膚設計凸顯身體曲線。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/392057.html", "imgs": [{"src": "img/1_1.jpg", "w": 795, "h": 591}, {"src": "img/1_2.jpg", "w": 466, "h": 588}, {"src": "img/1_3.jpg", "w": 805, "h": 564}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDmwzffhnvuwzf.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDmwzffhnvuwzf.rar"]]}, {"n": 2, "page": 1, "title": "時尚圓框太陽鏡MOD", "who": "其他", "note": "為每個角色都加了太陽鏡，還包括一些額外的髮型。", "desc": "《光與影：33號遠征隊》時尚圓框太陽鏡MOD，這款模組為遊戲中所有可操作的角色添加了一副時尚的圓框太陽鏡，包含一些新發型。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/388986.html", "imgs": [{"src": "img/2_1.jpg", "w": 900, "h": 906}, {"src": "img/2_2.jpg", "w": 900, "h": 924}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDtymjsyr.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDtymjsyr.rar"]]}, {"n": 3, "page": 1, "title": "維爾索的鐳射眼作戰服MOD", "who": "維爾索", "note": "替換維爾索的默認套裝。", "desc": "《光與影：33號遠征隊》維爾索的鐳射眼作戰服MOD，這款模組為遊戲角色維爾索添加了一套來自《漫威爭鋒》超級英雄鐳射眼的作戰服。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/387028.html", "imgs": [{"src": "img/3_1.jpg", "w": 716, "h": 696}, {"src": "img/3_2.jpg", "w": 736, "h": 593}, {"src": "img/3_3.jpg", "w": 900, "h": 507}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDfusyzzfwaw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDfusyzzfwaw.rar"]]}, {"n": 4, "page": 1, "title": "維爾索的博德之門3高領襯衫MOD", "who": "維爾索", "note": "替換維爾索的法棍套裝。", "desc": "《光與影：33號遠征隊》維爾索的博德之門3高領襯衫MOD，這款模組為遊戲角色維爾索添加了一套來自《博德之門3》高領襯衫。每種顏色都有幾種變化，通常是白色、黑色和紅色。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/387027.html", "imgs": [{"src": "img/4_1.jpg", "w": 900, "h": 456}, {"src": "img/4_2.jpg", "w": 900, "h": 456}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDbdzm3gaolcsaw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDbdzm3gaolcsaw.rar"]]}, {"n": 5, "page": 1, "title": "熙艾爾的淵虛之羽婉若游龍裙裝MOD", "who": "熙艾爾", "note": "替換了熙艾爾的褪變磨砂套裝，更換雙辮髮型。", "desc": "《光與影：33號遠征隊》熙艾爾的淵虛之羽婉若游龍裙裝MOD，這款模組為遊戲角色熙艾爾添加了一套一套來自《明末：淵虛之羽》婉若游龍鱗甲裙，取洛水游龍之姿，裁青綾為裳，金線縈縈勾勒潛龍隱跡，鱗甲凝光，龍冠崢嶸。衣袂流轉間藏蜀地祈禳祛疫的寄願，漾開一抹清逸靈動的東方氣韻。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/386557.html", "imgs": [{"src": "img/5_1.jpg", "w": 374, "h": 535}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaermmyxzaisaw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaermmyxzaisaw.rar"]]}, {"n": 6, "page": 1, "title": "呂涅的淵虛之羽婉若游龍裙裝MOD", "who": "呂涅", "note": "替換了呂涅的褪變磨砂套裝，更換雙辮髮型。", "desc": "《光與影：33號遠征隊》呂涅的淵虛之羽婉若游龍裙裝MOD，這款模組為遊戲角色呂涅添加了一套來自《明末：淵虛之羽》婉若游龍裙裝，主體採用青碧綢緞面料，衣身流動金絲暗紋勾勒游龍蜿蜒形態，臂甲排布立體龍鱗肌理，頭冠分叉龍角呼應青龍復甦意象，緊扣蜀地民眾渴求甘霖驅散羽化病的世界觀設定。版型收腰顯瘦，兼顧飄逸仙氣與類魂戰鬥裝束的利落感。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/386556.html", "imgs": [{"src": "img/6_1.jpg", "w": 900, "h": 652}, {"src": "img/6_2.jpg", "w": 760, "h": 720}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDyxzyuyljlkjaww.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDyxzyuyljlkjaww.rar"]]}, {"n": 7, "page": 1, "title": "熙艾爾的CK時尚內衣MOD", "who": "熙艾爾", "note": "替換了熙艾爾的默認套裝。", "desc": "《光與影：33號遠征隊》熙艾爾的CK時尚內衣MOD，這款模組為遊戲角色熙艾爾添加了一套來自美國時尚品牌Calvin Klein的性感內衣，支持重新上色。包含：自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/386062.html", "imgs": [{"src": "img/7_1.jpg", "w": 666, "h": 732}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDckssneiyixiaer.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDckssneiyixiaer.rar"]]}, {"n": 8, "page": 1, "title": "呂涅的CK時尚內衣MOD", "who": "呂涅", "note": "替換了呂涅的默認套裝。", "desc": "《光與影：33號遠征隊》呂涅的CK時尚內衣MOD，這款模組為遊戲角色呂涅添加了一套來自美國時尚品牌Calvin Klein的性感內衣，包含自定義胸部、臀部和大腿物理，服裝支持重新上色。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/386061.html", "imgs": [{"src": "img/8_1.jpg", "w": 517, "h": 742}, {"src": "img/8_2.jpg", "w": 753, "h": 769}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvnieckshisneiyi.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvnieckshisneiyi.rar"]]}, {"n": 9, "page": 1, "title": "瑪埃爾的秘客復古X戰警制服MOD", "who": "瑪埃爾", "note": "替換瑪埃爾的默認服裝。", "desc": "《光與影：33號遠征隊》瑪埃爾的秘客復古X戰警制服MOD，這款模組為遊戲角色瑪埃爾添加一套來自《漫威爭鋒》秘客的復古X戰警制服。承襲舊時代 X 戰警制服浪漫，鈷藍為底，明黃勾勒軀體起伏，一抹紅腰帶錨定變種人烙印。不對稱肩甲揉入冷峻機甲鋒芒，鎏金護靴順延線條流轉，復古漫畫風骨糅合星際戰甲凌厲。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/385643.html", "imgs": [{"src": "img/9_1.jpg", "w": 691, "h": 763}, {"src": "img/9_2.jpg", "w": 900, "h": 549}, {"src": "img/9_3.jpg", "w": 813, "h": 776}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDmgufguxzhnajia.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDmgufguxzhnajia.rar"]]}, {"n": 10, "page": 1, "title": "維爾索的博德之門3荷葉邊領襯衫MOD", "who": "維爾索", "note": "替換維爾索的法棍套裝。", "desc": "《光與影：33號遠征隊》維爾索的博德之門3荷葉邊領襯衫MOD，這款模組為遊戲角色維爾索添加了一套來自《博德之門3》阿斯代倫的荷葉邊領襯衫。每種顏色都有幾種變化，通常是白色、黑色和紅色。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/385642.html", "imgs": [{"src": "img/10_1.jpg", "w": 900, "h": 609}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDbdzm3hybchens.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDbdzm3hybchens.rar"]]}, {"n": 11, "page": 1, "title": "維爾索的如龍6凸領襯衫MOD", "who": "維爾索", "note": "替換維爾索的法棍套裝。", "desc": "《光與影：33號遠征隊》維爾索的如龍6凸領襯衫MOD，這款模組為遊戲角色維爾索添加了一套來自《如龍6》桐生一馬的凸領襯衫，每種顏色都有幾種變化，通常是白色、黑色和紅色。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/385641.html", "imgs": [{"src": "img/11_1.jpg", "w": 900, "h": 590}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDrlong6chens.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDrlong6chens.rar"]]}, {"n": 12, "page": 1, "title": "熙艾爾的第一後裔夏季泳裝MOD", "who": "熙艾爾", "note": "替換了熙艾爾的比基尼1。", "desc": "《光與影：33號遠征隊》熙艾爾的第一後裔夏季泳裝MOD，這款模組為遊戲角色熙艾爾添加了一套來自《第一後裔》維艾莎的夏季泳裝，這套藍白高叉連體衣，以掛脖高叉剪裁勾勒曲線，撞色包邊強化輪廓。低飽和配色搭配亮面材質，兼具未來科技感與賽博美學，露膚與收束的平衡，讓設計既服務於科幻設定，又凸顯角色的力量與柔美。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/385158.html", "imgs": [{"src": "img/12_1.jpg", "w": 800, "h": 668}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDdyhyxiajiyzhuangw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDdyhyxiajiyzhuangw.rar"]]}, {"n": 13, "page": 1, "title": "維爾索的薪王化身盔甲MOD", "who": "維爾索", "note": "替換維爾索的民用套裝。", "desc": "《光與影：33號遠征隊》維爾索的薪王化身盔甲MOD，這款模組為遊戲角色維爾索添加了一套來自《黑暗之魂》BOSS薪王化身的盔甲。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/384580.html", "imgs": [{"src": "img/13_1.jpg", "w": 821, "h": 784}, {"src": "img/13_2.jpg", "w": 574, "h": 759}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDweisuoerxwhuaskwa.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDweisuoerxwhuaskwa.rar"]]}, {"n": 14, "page": 1, "title": "古斯塔夫的薪王化身盔甲MOD", "who": "古斯塔夫", "note": "替換古斯塔夫的民用套裝。", "desc": "《光與影：33號遠征隊》古斯塔夫的薪王化身盔甲MOD，這款模組為遊戲角色古斯塔夫添加了一套來自《黑暗之魂》BOSS薪王化身的盔甲。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/384579.html", "imgs": [{"src": "img/14_1.jpg", "w": 574, "h": 759}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDgushitafxinwanghuashenfz.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDgushitafxinwanghuashenfz.rar"]]}, {"n": 15, "page": 1, "title": "熙艾爾的絕區零儀玄連衣裙MOD", "who": "熙艾爾", "note": "替換了熙艾爾的法棍套裝。", "desc": "《光與影：33號遠征隊》熙艾爾的絕區零儀玄連衣裙MOD，這款模組為遊戲角色熙艾爾添加了一套來自《絕區零》儀玄的連衣裙，連衣裙主體灰調面料兼具啞光質感與彈性，模擬出輕科幻緊身服的利落質感；袖口、下襬的白色印花布料以柔軟質感中和硬朗，深紫內襯、淺藍胸花則作為色彩錨點，打破灰調的沉悶，絲襪與鞋履的同色系漸變，也讓造型的視覺重心始終集中在上衣的細節設計上。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/383709.html", "imgs": [{"src": "img/15_1.jpg", "w": 581, "h": 737}, {"src": "img/15_2.jpg", "w": 513, "h": 565}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaierxuanyi.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaierxuanyi.rar"]]}, {"n": 16, "page": 2, "title": "呂涅的絕區零儀玄連衣裙MOD", "who": "呂涅", "note": "替換了呂涅的法棍套裝。", "desc": "《光與影：33號遠征隊》呂涅的絕區零儀玄連衣裙MOD，這款模組為遊戲角色呂涅添加了一套來自《絕區零》儀玄的連衣裙，這套連衣裙以灰白為主調，高收腰剪裁勾勒身形，啞光彈力面料兼具未來感與行動性。珍珠扣、胸花與白襯布點綴細節，深紫內襯提亮層次，搭配漸變絲襪與低跟鞋，融合復古優雅與戰鬥實用。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/383708.html", "imgs": [{"src": "img/16_1.jpg", "w": 724, "h": 285}, {"src": "img/16_2.jpg", "w": 414, "h": 611}, {"src": "img/16_3.jpg", "w": 582, "h": 623}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDjqlxuanylinayiqunw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDjqlxuanylinayiqunw.rar"]]}, {"n": 17, "page": 2, "title": "熙艾爾的艾爾登法環瑪麗卡連衣裙MOD", "who": "熙艾爾", "note": "替換了熙艾爾的舞者套裝。", "desc": "《光與影：33號遠征隊》熙艾爾的艾爾登法環瑪麗卡連衣裙MOD，這款模組為遊戲角色熙艾爾添加了一套來自《艾爾登法環》瑪麗卡女王的連衣裙，黑金掛脖禮服以金枝刺繡為核心，金屬飾件與高開叉剪裁，細節盡顯華貴與破碎感，完美呼應角色設定。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/383096.html", "imgs": [{"src": "img/17_1.jpg", "w": 584, "h": 655}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaermlikae.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaermlikae.rar"]]}, {"n": 18, "page": 2, "title": "呂涅的艾爾登法環瑪麗卡連衣裙MOD", "who": "呂涅", "note": "替換了呂涅的舞者套裝。", "desc": "《光與影：33號遠征隊》呂涅的艾爾登法環瑪麗卡連衣裙MOD，這款模組為遊戲角色呂涅添加了一套來自《艾爾登法環》瑪麗卡女王的連衣裙，黑金掛脖禮服，深 V 高開叉設計，搭配金枝刺繡與金屬飾件，盡顯華貴與力量感。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/383094.html", "imgs": [{"src": "img/18_1.jpg", "w": 523, "h": 720}, {"src": "img/18_2.jpg", "w": 900, "h": 576}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDmalikenvwlinayiqunw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDmalikenvwlinayiqunw.rar"]]}, {"n": 19, "page": 2, "title": "艾爾登法環瑪蓮妮婭替換為瑪埃爾MOD", "who": "瑪埃爾", "note": "替換瑪埃爾的默認套裝。", "desc": "《光與影：33號遠征隊》艾爾登法環瑪蓮妮婭替換為瑪埃爾MOD，這款模組將瑪埃爾的模型外觀替換為《艾爾登法環》中出場的BOSS-瑪蓮妮婭。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/377569.html", "imgs": [{"src": "img/19_1.jpg", "w": 900, "h": 633}, {"src": "img/19_2.jpg", "w": 760, "h": 713}, {"src": "img/19_3.jpg", "w": 900, "h": 634}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDmlnythmaier.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDmlnythmaier.rar"]]}, {"n": 20, "page": 2, "title": "熙艾爾的尼爾機械紀元A2制服MOD", "who": "熙艾爾", "note": "替換了熙艾爾的埃斯基耶套裝。", "desc": "《光與影：33號遠征隊》熙艾爾的尼爾機械紀元A2制服MOD，這款模組為遊戲角色熙艾爾添加了一套來自《尼爾：機械紀元》A2的性感作戰服，純黑極簡機能戰鬥裝束，緊身抹胸 + 皮質短褲搭配不對稱長靴，利落無冗餘，辨識度極高。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/377568.html", "imgs": [{"src": "img/20_1.jpg", "w": 641, "h": 674}, {"src": "img/20_2.jpg", "w": 603, "h": 650}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDnierjxya2zzf.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDnierjxya2zzf.rar"]]}, {"n": 21, "page": 2, "title": "呂涅的尼爾凱尼連衣裙MOD", "who": "呂涅", "note": "替換了呂涅的埃斯基耶套裝。", "desc": "《光與影：33號遠征隊》呂涅的尼爾凱尼連衣裙MOD，這款模組為遊戲角色呂涅添加了一套來自《尼爾：人工生命》凱尼的連衣裙，冷調灰藍配黑飾，不對稱剪裁 + 繃帶綁帶混搭，完美還原尼爾風格，柔美與颯爽兼具，末世戰鬥感十足。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/377567.html", "imgs": [{"src": "img/21_1.jpg", "w": 647, "h": 683}, {"src": "img/21_2.jpg", "w": 900, "h": 695}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDnierkainilyqunkaa.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDnierkainilyqunkaa.rar"]]}, {"n": 22, "page": 2, "title": "呂涅的雙生舞伶連體衣MOD", "who": "呂涅", "note": "替換了呂涅的默認服裝。", "desc": "《光與影：33號遠征隊》呂涅的雙生舞伶連體衣MOD，這款模組為遊戲角色呂涅添加了一套來自《原子之心》雙生舞伶的連體衣，緊身黑銀膠衣勾勒利落線條，亮澤質感強化未來感，外搭金色短夾克形成色彩反差，兩種顏色版本。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/376451.html", "imgs": [{"src": "img/22_1.jpg", "w": 434, "h": 622}, {"src": "img/22_2.jpg", "w": 511, "h": 764}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDsswljinsyw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDsswljinsyw.rar"]]}, {"n": 23, "page": 2, "title": "熙艾爾的第一後裔終極沃爾比緊身衣MOD", "who": "熙艾爾", "note": "替換了熙艾爾的薩卡帕塔套裝。", "desc": "《光與影：33號遠征隊》熙艾爾的第一後裔終極沃爾比緊身衣MOD，這款模組為遊戲角色熙艾爾添加了一套來自《第一後裔》性感機甲緊身衣，主體緊身連體衣以深 V 剪裁強化線條感，搭配金屬飾邊提升精緻度；外搭短款夾克與腿部機甲護具，既強化了未來感，也通過結構設計平衡了性感與功能性。整體造型兼顧了角色的戰鬥屬性與視覺張力。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/374794.html", "imgs": [{"src": "img/23_1.jpg", "w": 385, "h": 637}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaierjsydyhy.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaierjsydyhy.rar"]]}, {"n": 24, "page": 2, "title": "呂涅的第一後裔終極沃爾比緊身衣MOD", "who": "呂涅", "note": "替換了呂涅的薩卡帕塔套裝。", "desc": "《光與影：33號遠征隊》呂涅的第一後裔終極沃爾比緊身衣MOD，這款模組為遊戲角色呂涅添加了一套來自《第一後裔》終極沃爾比的性感緊身衣，這套科幻機甲風服裝，以白、黑、灰三色構建層次。緊身連體衣凸顯線條，機甲護具強化未來感，兼顧戰鬥功能性與視覺張力，造型利落，細節完整，風格統一。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/374792.html", "imgs": [{"src": "img/24_1.jpg", "w": 562, "h": 698}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDdyhyzjwoerbjsy.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDdyhyzjwoerbjsy.rar"]]}, {"n": 25, "page": 2, "title": "熙艾爾的漫威爭鋒羅剎女作戰服MOD", "who": "熙艾爾", "note": "替換了熙艾爾的默認服裝。", "desc": "《光與影：33號遠征隊》熙艾爾的漫威爭鋒羅剎女作戰服MOD，這款模組為遊戲角色熙艾爾添加了一套來自《漫威爭鋒》羅剎女的作戰服，這套服裝採用黃綠撞色拼接，皮革護具強化戰鬥感，緊身剪裁凸顯利落線條，X 形肩章與腕帶細節增添辨識度，整體風格幹練且充滿力量感。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/374026.html", "imgs": [{"src": "img/25_1.jpg", "w": 718, "h": 674}, {"src": "img/25_2.jpg", "w": 776, "h": 661}, {"src": "img/25_3.jpg", "w": 805, "h": 704}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaierdelcnzzf.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaierdelcnzzf.rar"]]}, {"n": 26, "page": 2, "title": "熙艾爾的時尚復古眼鏡MOD", "who": "熙艾爾", "note": "幾乎給所有熙艾爾的髮型都加了圓框眼鏡。", "desc": "《光與影：33號遠征隊》熙艾爾的時尚復古眼鏡MOD，這款模組為遊戲角色熙艾爾添加了一副帶有復古風格的時尚圓框眼鏡。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/374025.html", "imgs": [{"src": "img/26_1.jpg", "w": 768, "h": 696}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaierdeshisyanjwkjw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaierdeshisyanjwkjw.rar"]]}, {"n": 27, "page": 2, "title": "熙艾爾的第一後裔性感牛仔裝MOD", "who": "熙艾爾", "note": "替換了熙艾爾的法棍服裝和髮型。", "desc": "《光與影：33號遠征隊》熙艾爾的第一後裔性感牛仔裝MOD，這款模組為遊戲角色熙艾爾添加了一套來自《第一後裔》性感牛仔服，這套西部風穿搭以復古牛仔為基底，寬簷帽與卡其色短夾克塑造幹練氣場，深棕皮質胸衣 + 金屬腰鏈勾勒曲線，皮褲增添冷豔野性魅力。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/373844.html", "imgs": [{"src": "img/27_1.jpg", "w": 591, "h": 688}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxgannzxiaer.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxgannzxiaer.rar"]]}, {"n": 28, "page": 2, "title": "呂涅的第一後裔性感牛仔裝MOD", "who": "呂涅", "note": "替換了呂涅的法棍服裝和髮型。", "desc": "《光與影：33號遠征隊》呂涅的第一後裔性感牛仔裝MOD，這款模組為遊戲角色呂涅添加了一套來自《第一後裔》性感牛仔服，這套西部牛仔風穿搭融合復古與性感，寬簷帽與短款夾克營造酷颯氛圍，皮質胸衣與腰鏈凸顯利落線條，墨鏡與皮褲強化了野性摩登感。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/373843.html", "imgs": [{"src": "img/28_1.jpg", "w": 540, "h": 652}, {"src": "img/28_2.jpg", "w": 414, "h": 689}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvndedyhynzz.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvndedyhynzz.rar"]]}, {"n": 29, "page": 2, "title": "熙艾爾的黃金王冠MOD", "who": "熙艾爾", "note": "替換熙艾爾的法棍髮型。", "desc": "《光與影：33號遠征隊》熙艾爾的黃金王冠MOD，這款模組為遊戲角色熙艾爾添加了一頂黃金鑄就的王冠，為你的女孩戴上王冠吧。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/373842.html", "imgs": [{"src": "img/29_1.jpg", "w": 635, "h": 618}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaerdehjwg.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaerdehjwg.rar"]]}, {"n": 30, "page": 2, "title": "瑪埃爾的奧丁神判盾女套裝MOD", "who": "瑪埃爾", "note": "替換瑪埃爾的時尚套裝。", "desc": "《光與影：33號遠征隊》瑪埃爾的奧丁神判盾女套裝MOD，這款模組為遊戲角色瑪埃爾添加一套來自《奧丁：神判》盾女套裝。這套鎧甲主體為銀灰色金屬質感，搭配深藍色披風。胸甲帶有繁複的金色花紋浮雕，邊緣裝飾有類似勳章的星形金屬件。肩部肩甲造型寬大，帶有層疊的金色裝飾紋路。手臂處為網狀金屬袖套，腰間束帶穿插金色扣件。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/373535.html", "imgs": [{"src": "img/30_1.jpg", "w": 880, "h": 735}, {"src": "img/30_2.jpg", "w": 900, "h": 484}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDaodingspdunvtaozkjww.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDaodingspdunvtaozkjww.rar"]]}, {"n": 31, "page": 3, "title": "呂涅的漫威爭鋒羅剎女作戰服MOD", "who": "呂涅", "note": "替換了呂涅的默認服裝。", "desc": "《光與影：33號遠征隊》呂涅的漫威爭鋒羅剎女作戰服MOD，這款模組為遊戲角色呂涅添加了一套來自《漫威爭鋒》羅剎女的作戰服，服裝配色極具衝擊力，黃綠撞色大膽醒目，搭配深棕皮質外套，兼具動感與酷感。緊身版型勾勒利落線條，腰帶與綁靴增添機能風細節。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/373534.html", "imgs": [{"src": "img/31_1.jpg", "w": 900, "h": 665}, {"src": "img/31_2.jpg", "w": 663, "h": 631}, {"src": "img/31_3.jpg", "w": 704, "h": 682}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDmwzfluochanv.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDmwzfluochanv.rar"]]}, {"n": 32, "page": 3, "title": "呂涅的黃金王冠MOD", "who": "呂涅", "note": "替換呂涅的法棍髮型。", "desc": "《光與影：33號遠征隊》呂涅的黃金王冠MOD，這款模組為遊戲角色呂涅添加了一頂黃金鑄就的王冠，為你的女孩戴上冠冕吧。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/373533.html", "imgs": [{"src": "img/32_1.jpg", "w": 698, "h": 648}, {"src": "img/32_2.jpg", "w": 494, "h": 542}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvndehjwangguan.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvndehjwangguan.rar"]]}, {"n": 33, "page": 3, "title": "呂涅的星光派對服裝MOD", "who": "呂涅", "note": "替換了呂涅的時尚服裝。", "desc": "《光與影：33號遠征隊》呂涅的星光派對服裝MOD，這款模組為遊戲角色呂涅添加了一套性感的派對服裝，銀灰色網面掛脖上衣，前片三角收腰、後片交叉繫帶，搭配緊身黑褲，科技感與性感並存。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/373056.html", "imgs": [{"src": "img/33_1.jpg", "w": 649, "h": 771}, {"src": "img/33_2.jpg", "w": 692, "h": 753}, {"src": "img/33_3.jpg", "w": 541, "h": 647}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxguangpaiduifz.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxguangpaiduifz.rar"]]}, {"n": 34, "page": 3, "title": "增強描述MOD", "who": "其他", "note": "原遊戲中的“極大”、“很大”、“中等”等描述改為詳細數值。", "desc": "《光與影：33號遠征隊》增強描述MOD，這個模組為遊戲中的技能、武器、符文等含糊的文本描述加上詳細數值。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/372812.html", "imgs": [{"src": "img/34_1.jpg", "w": 900, "h": 362}, {"src": "img/34_2.jpg", "w": 900, "h": 538}, {"src": "img/34_3.jpg", "w": 900, "h": 490}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDzqiangmiaoshu.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDzqiangmiaoshu.rar"]]}, {"n": 35, "page": 3, "title": "熙艾爾的松田勞拉格鬥服MOD", "who": "熙艾爾", "note": "替換了熙艾爾的塞壬服裝。", "desc": "《光與影：33號遠征隊》熙艾爾的松田勞拉格鬥服MOD，這款模組為遊戲角色熙艾爾添加了一套來自《街頭霸王5》松田勞拉的性感格鬥服，使用自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/372811.html", "imgs": [{"src": "img/35_1.jpg", "w": 479, "h": 717}, {"src": "img/35_2.jpg", "w": 749, "h": 637}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaerstllgdf.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaerstllgdf.rar"]]}, {"n": 36, "page": 3, "title": "呂涅的松田勞拉格鬥服MOD", "who": "呂涅", "note": "替換了呂涅的塞壬服裝。", "desc": "《光與影：33號遠征隊》呂涅的松田勞拉格鬥服MOD，這款模組為遊戲角色呂涅添加了一套來自《街頭霸王5》松田勞拉的性感格鬥服，使用自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/372810.html", "imgs": [{"src": "img/36_1.jpg", "w": 492, "h": 739}, {"src": "img/36_2.jpg", "w": 598, "h": 659}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvndestllgedoufu.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvndestllgedoufu.rar"]]}, {"n": 37, "page": 3, "title": "熙艾爾的死或生4克麗絲蒂格鬥服MOD", "who": "熙艾爾", "note": "替換了熙艾爾的默認服裝。", "desc": "《光與影：33號遠征隊》熙艾爾的死或生4克麗絲蒂格鬥服MOD，這款模組為遊戲角色熙艾爾添加了一套來自《死或生4》克麗絲蒂的性感格鬥服，使用自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/372194.html", "imgs": [{"src": "img/37_1.jpg", "w": 722, "h": 473}, {"src": "img/37_2.jpg", "w": 670, "h": 756}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDshwj4kelidiyaw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDshwj4kelidiyaw.rar"]]}, {"n": 38, "page": 3, "title": "古斯塔夫的鬼泣4風衣MOD", "who": "古斯塔夫", "note": "替換古斯塔夫的法棍套裝。", "desc": "《光與影：33號遠征隊》古斯塔夫的鬼泣4風衣MOD，這款模組為遊戲角色古斯塔夫添加了一套來自《鬼泣4》但丁所穿著的紅色風衣。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/370599.html", "imgs": [{"src": "img/38_1.jpg", "w": 675, "h": 766}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDhongsefyiguiiq4.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDhongsefyiguiiq4.rar"]]}, {"n": 39, "page": 3, "title": "維爾索的鬼泣4風衣MOD", "who": "維爾索", "note": "替換維爾索的法棍服裝。", "desc": "《光與影：33號遠征隊》維爾索的鬼泣4風衣MOD，這款模組為遊戲角色維爾索添加了一套來自《鬼泣4》但丁所穿著的紅色風衣。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/370598.html", "imgs": [{"src": "img/39_1.jpg", "w": 742, "h": 775}, {"src": "img/39_2.jpg", "w": 899, "h": 495}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDweisuoerguiqi4fyi.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDweisuoerguiqi4fyi.rar"]]}, {"n": 40, "page": 3, "title": "呂涅的死或生4克麗絲蒂格鬥服MOD", "who": "呂涅", "note": "替換了呂涅的默認服裝。", "desc": "《光與影：33號遠征隊》呂涅的死或生4克麗絲蒂格鬥服MOD，這款模組為遊戲角色呂涅添加了一套來自《死或生4》克麗絲蒂的性感格鬥服，使用自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/371287.html", "imgs": [{"src": "img/40_1.jpg", "w": 738, "h": 491}, {"src": "img/40_2.jpg", "w": 821, "h": 742}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDsihsxgangdfuwa.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDsihsxgangdfuwa.rar"]]}, {"n": 41, "page": 3, "title": "呂涅更性感的的時尚服裝MOD", "who": "呂涅", "note": "主要特徵：", "desc": "《光與影：33號遠征隊》呂涅更性感的的時尚服裝MOD，這款模組為呂涅的時尚服裝提供了視覺替代，調整了她的角色模型，使其身形更加“增強”和大膽。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/371286.html", "imgs": [{"src": "img/41_1.jpg", "w": 900, "h": 633}, {"src": "img/41_2.jpg", "w": 797, "h": 802}, {"src": "img/41_3.jpg", "w": 900, "h": 722}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxgandeshishangfzlvn.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxgandeshishangfzlvn.rar"]]}, {"n": 42, "page": 3, "title": "瑪埃爾的博德之門影心服飾MOD", "who": "瑪埃爾", "note": "替換瑪埃爾的法棍套裝。", "desc": "《光與影：33號遠征隊》瑪埃爾的博德之門影心服飾MOD，這款模組為遊戲角色瑪埃爾添加一套來自《博德之門3》影心的所穿著的輕甲。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/370817.html", "imgs": [{"src": "img/42_1.jpg", "w": 759, "h": 704}, {"src": "img/42_2.jpg", "w": 736, "h": 707}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDbdzm3yingxinfzzs.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDbdzm3yingxinfzzs.rar"]]}, {"n": 43, "page": 3, "title": "瑪埃爾的巫師三希裡服裝MOD", "who": "瑪埃爾", "note": "替換瑪埃爾的便裝。", "desc": "《光與影：33號遠征隊》瑪埃爾的巫師三希裡服裝MOD，這款模組為遊戲角色瑪埃爾添加一套來自《巫師三》希裡的獵魔人服裝。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/370179.html", "imgs": [{"src": "img/43_1.jpg", "w": 722, "h": 750}, {"src": "img/43_2.jpg", "w": 662, "h": 733}, {"src": "img/43_3.jpg", "w": 577, "h": 653}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDwssxilifz.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDwssxilifz.rar"]]}, {"n": 44, "page": 3, "title": "熙艾爾的黑女皇緊身衣MOD", "who": "熙艾爾", "note": "替換了熙艾爾的歐斯基歐服裝。", "desc": "《光與影：33號遠征隊》熙艾爾的黑女皇緊身衣MOD，這款模組為遊戲角色熙艾爾添加了一套性感的黑色緊身衣，胸甲、肩甲、腿甲分段設計，紅黑撞色 + 金屬光澤，有細節層次，暗黑奇幻風與機能感融合得很完美。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/369826.html", "imgs": [{"src": "img/44_1.jpg", "w": 360, "h": 555}, {"src": "img/44_2.jpg", "w": 492, "h": 483}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaerdeheinvhfz.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaerdeheinvhfz.rar"]]}, {"n": 45, "page": 3, "title": "呂涅的黑女皇緊身衣MOD", "who": "呂涅", "note": "替換了呂涅的歐斯基歐服裝。", "desc": "《光與影：33號遠征隊》呂涅的黑女皇緊身衣MOD，這款模組為遊戲角色呂涅添加了一套性感的緊身衣，紅黑主色 + 尖刺、鏤空、詭譎紋路，線條像有機外骨骼，沙漏型剪裁 + 腹部、側腰大面積鏤空，強化女性曲線，同時用裝甲覆蓋關鍵部位，性感與戰鬥感平衡得很好。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/369824.html", "imgs": [{"src": "img/45_1.jpg", "w": 720, "h": 773}, {"src": "img/45_2.jpg", "w": 536, "h": 685}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvndeheinvhjsyiwa.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvndeheinvhjsyiwa.rar"]]}, {"n": 46, "page": 4, "title": "瑪埃爾的武士夾克套裝MOD", "who": "瑪埃爾", "note": "服裝風格來自《賽博朋克2077》。", "desc": "《光與影：33號遠征隊》瑪埃爾的武士夾克套裝MOD，這款模組為遊戲角色瑪埃爾添加一套帶有賽博朋克風格的夾克套裝，包含：夾克、牛仔短褲。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/369637.html", "imgs": [{"src": "img/46_1.jpg", "w": 633, "h": 554}, {"src": "img/46_2.jpg", "w": 492, "h": 540}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDmaaierdewushijiake.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDmaaierdewushijiake.rar"]]}, {"n": 47, "page": 4, "title": "呂涅的時尚復古風眼鏡MOD", "who": "呂涅", "note": "幾乎為所有呂涅髮型都加了復古眼鏡。", "desc": "《光與影：33號遠征隊》呂涅的時尚復古風眼鏡MOD，這款模組為遊戲角色呂涅添加了一副帶有復古風格的時尚圓框眼鏡。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/369029.html", "imgs": [{"src": "img/47_1.jpg", "w": 874, "h": 721}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvniedeshisfugeyanj.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvniedeshisfugeyanj.rar"]]}, {"n": 48, "page": 4, "title": "戰錘40K星際戰士替換埃斯基耶MOD", "who": "其他", "note": "僅影響埃斯基耶的外觀。", "desc": "《光與影：33號遠征隊》戰錘40K星際戰士替換埃斯基耶MOD，這款模組將遊戲角色埃斯基耶的外觀替換為《戰錘40K》星際戰士-泰圖斯。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/369028.html", "imgs": [{"src": "img/48_1.jpg", "w": 597, "h": 609}, {"src": "img/48_2.jpg", "w": 593, "h": 570}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDzc40kxjzhans.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDzc40kxjzhans.rar"]]}, {"n": 49, "page": 4, "title": "維爾索的大樹守衛盔甲MOD", "who": "維爾索", "note": "替換維爾索的法棍服裝。", "desc": "《光與影：33號遠征隊》維爾索的大樹守衛盔甲MOD，這款模組為遊戲角色維爾索添加了一套來自熱門遊戲《艾爾登法環》大樹守衛盔甲。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/368839.html", "imgs": [{"src": "img/49_1.jpg", "w": 627, "h": 741}, {"src": "img/49_2.jpg", "w": 900, "h": 475}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDwrsdashukuijiashouw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDwrsdashukuijiashouw.rar"]]}, {"n": 50, "page": 4, "title": "熙艾爾的尼爾轉生2B裙裝MOD", "who": "熙艾爾", "note": "替換了熙艾爾的克萊雅服裝。", "desc": "《光與影：33號遠征隊》熙艾爾的尼爾轉生2B裙裝MOD，這款模組為遊戲角色熙艾爾添加了一套來自《尼爾：轉生》2B的性感黑色裙裝服，使用自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/368489.html", "imgs": [{"src": "img/50_1.jpg", "w": 593, "h": 338}, {"src": "img/50_2.jpg", "w": 628, "h": 404}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaiernier2bkka.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaiernier2bkka.rar"]]}, {"n": 51, "page": 4, "title": "呂涅的尼爾轉生2B裙裝MOD", "who": "呂涅", "note": "替換了呂涅的克萊雅服裝。", "desc": "《光與影：33號遠征隊》呂涅的尼爾轉生2B裙裝MOD，這款模組為遊戲角色呂涅添加了一套來自《尼爾：轉生》2B的性感黑色裙裝，自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/368488.html", "imgs": [{"src": "img/51_1.jpg", "w": 556, "h": 413}, {"src": "img/51_2.jpg", "w": 579, "h": 403}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDnierzhuans2blvnieaa.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDnierzhuans2blvnieaa.rar"]]}, {"n": 52, "page": 4, "title": "維爾索的暗影騎士盔甲MOD", "who": "維爾索", "note": "替換維爾索的拜聖服裝（Pelerin Set）。", "desc": "《光與影：33號遠征隊》維爾索的暗影騎士盔甲MOD，這款模組為遊戲角色維爾索添加了一套來自熱門遊戲《王權與自由》暗影騎士盔甲，服裝在夜間有發光紋理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/368165.html", "imgs": [{"src": "img/52_1.jpg", "w": 889, "h": 714}, {"src": "img/52_2.jpg", "w": 900, "h": 489}, {"src": "img/52_3.jpg", "w": 719, "h": 686}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDweisuoerdeanyqstaozsda.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDweisuoerdeanyqstaozsda.rar"]]}, {"n": 53, "page": 4, "title": "友好的怪物MOD", "who": "其他", "note": "阻止怪物追趕玩家，允許和平探索。", "desc": "《光與影：33號遠征隊》友好的怪物MOD，這個模組禁用了遊戲中所有怪物的追逐行為。怪物會像平常一樣移動，但永遠不會追逐玩家。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/367780.html", "imgs": [{"src": "img/53_1.jpg", "w": 900, "h": 494}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDyouhaodegwuw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDyouhaodegwuw.rar"]]}, {"n": 54, "page": 4, "title": "古斯塔夫的獵人西裝MOD", "who": "古斯塔夫", "note": "替換古斯塔夫的法棍套裝。", "desc": "《光與影：33號遠征隊》古斯塔夫的獵人西裝MOD，這款模組為遊戲角色古斯塔夫添加了一件帥氣的西裝，服裝風格是《血源詛咒》和《匹諾曹的謊言》結合體。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/367779.html", "imgs": [{"src": "img/54_1.jpg", "w": 743, "h": 660}, {"src": "img/54_2.jpg", "w": 864, "h": 633}, {"src": "img/54_3.jpg", "w": 578, "h": 462}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDgustfdelirexiz.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDgustfdelirexiz.rar"]]}, {"n": 55, "page": 4, "title": "維爾索的復古圓框眼鏡MOD", "who": "維爾索", "note": "替換DLC“花朵”髮型中的玫瑰，所以任何移除花朵的模組都會移除眼鏡。", "desc": "《光與影：33號遠征隊》維爾索的復古圓框眼鏡MOD，這款模組為遊戲角色維爾索添加了一副帶有復古風格的圓框眼鏡。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/367778.html", "imgs": [{"src": "img/55_1.jpg", "w": 734, "h": 657}, {"src": "img/55_2.jpg", "w": 865, "h": 683}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDweisuoerfguyanj.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDweisuoerfguyanj.rar"]]}, {"n": 56, "page": 4, "title": "呂涅的尼爾2B裙裝MOD", "who": "呂涅", "note": "替換了呂涅的法棍服裝。", "desc": "《光與影：33號遠征隊》呂涅的尼爾2B裙裝MOD，這款模組為遊戲角色呂涅添加了一套來自《尼爾：機械紀元》2B的黑色裙裝，自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/367427.html", "imgs": [{"src": "img/56_1.jpg", "w": 741, "h": 392}, {"src": "img/56_2.jpg", "w": 781, "h": 715}, {"src": "img/56_3.jpg", "w": 626, "h": 523}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvniedenier2bqunzwa.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvniedenier2bqunzwa.rar"]]}, {"n": 57, "page": 4, "title": "瞬間勝利MOD", "who": "其他", "note": "通過在戰鬥開始時觸發所有敵人的瞬殺，自動贏得每場戰鬥。", "desc": "《光與影：33號遠征隊》瞬間勝利MOD，這個模組讓你通過自動擊殺所有敵人，瞬間贏得遊戲中的所有戰鬥。它旨在作為一個有趣的模組，但也適合調試或模組製作。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/367426.html", "imgs": [{"src": "img/57_1.jpg", "w": 900, "h": 488}, {"src": "img/57_2.jpg", "w": 900, "h": 485}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDshunjianshengliwaw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDshunjianshengliwaw.rar"]]}, {"n": 58, "page": 4, "title": "漫畫字體MOD", "who": "其他", "note": "一個簡單字體替換，符合遊戲沉浸風格。", "desc": "《光與影：33號遠征隊》漫畫字體MOD，這款模組將遊戲的大部分字體替換為一款卡通漫畫風格的字體-Comic Neue字體。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/367425.html", "imgs": [{"src": "img/58_1.jpg", "w": 900, "h": 512}, {"src": "img/58_2.jpg", "w": 900, "h": 531}, {"src": "img/58_3.jpg", "w": 900, "h": 637}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDmanhuazitiwwa.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDmanhuazitiwwa.rar"]]}, {"n": 59, "page": 4, "title": "呂涅的渡鴉女巫羽毛裙裝MOD", "who": "呂涅", "note": "替換了呂涅的土豆偶服裝（sakapatate outfit）。", "desc": "《光與影：33號遠征隊》呂涅的渡鴉女巫羽毛裙裝MOD，這款模組為遊戲角色呂涅添加了一套來自《博德之門3》渡鴉女巫羽毛裙，自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/367077.html", "imgs": [{"src": "img/59_1.jpg", "w": 733, "h": 583}, {"src": "img/59_2.jpg", "w": 771, "h": 669}, {"src": "img/59_3.jpg", "w": 650, "h": 643}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvnduyawunvqunz.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvnduyawunvqunz.rar"]]}, {"n": 60, "page": 4, "title": "呂涅的魔獸世界死亡使者服裝MOD", "who": "呂涅", "note": "替換了呂涅的埃斯基耶服裝。", "desc": "《光與影：33號遠征隊》呂涅的魔獸世界死亡使者服裝MOD，這款模組為遊戲角色呂涅添加了一套來自《魔獸世界》死亡使者服裝，自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/366532.html", "imgs": [{"src": "img/60_1.jpg", "w": 900, "h": 566}, {"src": "img/60_2.jpg", "w": 614, "h": 584}, {"src": "img/60_3.jpg", "w": 566, "h": 690}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDmossjieswszlvn.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDmossjieswszlvn.rar"]]}, {"n": 61, "page": 5, "title": "古斯塔夫的王權與自由妖精假面套裝MOD", "who": "古斯塔夫", "note": "替換古斯塔夫的盧米埃爾套裝（Lumière Set）。", "desc": "《光與影：33號遠征隊》古斯塔夫的王權與自由妖精假面套裝MOD，這款模組為遊戲角色古斯塔夫添加了一套來自熱門遊戲《王權與自由》妖精假面套裝。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/366351.html", "imgs": [{"src": "img/61_1.jpg", "w": 900, "h": 690}, {"src": "img/61_2.jpg", "w": 900, "h": 480}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDgstfjinlingjiamka.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDgstfjinlingjiamka.rar"]]}, {"n": 62, "page": 5, "title": "熙艾爾的安琪爾性感格鬥裝MOD", "who": "熙艾爾", "note": "替換了熙艾爾的塞壬服裝。", "desc": "《光與影：33號遠征隊》熙艾爾的性感棒球隊服裝MOD，這款模組為遊戲角色熙艾爾添加了一套來自《THE KING OF FIGHTERS》安琪爾的性感格鬥服，使用自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/366350.html", "imgs": [{"src": "img/62_1.jpg", "w": 642, "h": 662}, {"src": "img/62_2.jpg", "w": 523, "h": 668}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDquanhnajiergdiyfuwa.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDquanhnajiergdiyfuwa.rar"]]}, {"n": 63, "page": 5, "title": "呂涅的安琪爾性感格鬥裝MOD", "who": "呂涅", "note": "替換了呂涅的塞壬服裝。", "desc": "《光與影：33號遠征隊》呂涅的安琪爾性感格鬥裝MOD，這款模組為遊戲角色呂涅添加了一套來自《THE KING OF FIGHTERS》安琪爾的性感格鬥服，自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/366349.html", "imgs": [{"src": "img/63_1.jpg", "w": 739, "h": 688}, {"src": "img/63_2.jpg", "w": 695, "h": 699}, {"src": "img/63_3.jpg", "w": 770, "h": 500}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlniedeaijierqhgdouf.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlniedeaijierqhgdouf.rar"]]}, {"n": 64, "page": 5, "title": "維爾索的失落方舟席利安套裝MOD", "who": "維爾索", "note": "替換維爾索的法棍服裝。", "desc": "《光與影：33號遠征隊》維爾索的失落方舟席利安套裝MOD，這款模組為遊戲角色維爾索添加了一套來自熱門遊戲《失落方舟》席利安王子的盔甲，服裝有布料物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/365668.html", "imgs": [{"src": "img/64_1.jpg", "w": 398, "h": 772}, {"src": "img/64_2.jpg", "w": 552, "h": 662}, {"src": "img/64_3.jpg", "w": 624, "h": 563}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDslfzxilianwzfuzw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDslfzxilianwzfuzw.rar"]]}, {"n": 65, "page": 5, "title": "瑪埃爾的普拉西亞戰記騎士套裝MOD", "who": "瑪埃爾", "note": "替換了瑪埃爾的法棍套裝。", "desc": "《光與影：33號遠征隊》瑪埃爾的普拉西亞戰記騎士套裝MOD，這款模組為遊戲角色瑪埃爾添加一套來自策略遊戲《普拉西亞戰記》騎士盔甲。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/365667.html", "imgs": [{"src": "img/65_1.jpg", "w": 833, "h": 733}, {"src": "img/65_2.jpg", "w": 900, "h": 456}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDplxyzjqskuijiaw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDplxyzjqskuijiaw.rar"]]}, {"n": 66, "page": 5, "title": "維爾索的黑騎士領主盔甲MOD", "who": "維爾索", "note": "替換維爾索的土豆服裝。", "desc": "《光與影：33號遠征隊》維爾索的黑騎士領主盔甲MOD，這款模組為遊戲角色維爾索添加了一套來自熱門遊戲《王權與自由》黑騎士領主盔甲，斗篷有布料物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/365468.html", "imgs": [{"src": "img/66_1.jpg", "w": 900, "h": 653}, {"src": "img/66_2.jpg", "w": 900, "h": 451}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDheiqiskuijiawqzy.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDheiqiskuijiawqzy.rar"]]}, {"n": 67, "page": 5, "title": "熙艾爾的性感暗影行者緊身衣MOD", "who": "熙艾爾", "note": "替換了熙艾爾的默認服裝。", "desc": "《光與影：33號遠征隊》熙艾爾的性感暗影行者緊身衣MOD，這款模組為遊戲角色熙艾爾添加了一套性感的暗影行者緊身衣，並對她的體型進行了豐滿的調整。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/365467.html", "imgs": [{"src": "img/67_1.jpg", "w": 685, "h": 667}, {"src": "img/67_2.jpg", "w": 606, "h": 690}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDanyxzfzxiaer.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDanyxzfzxiaer.rar"]]}, {"n": 68, "page": 5, "title": "呂涅的生化危機艾達針織毛衣裙MOD", "who": "呂涅", "note": "替換了呂涅的遠征服。", "desc": "《光與影：33號遠征隊》呂涅的生化危機艾達針織毛衣裙MOD，這款模組為遊戲角色呂涅添加了一套來自《生化危機4重製版》艾達的針織毛衣裙，自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/364951.html", "imgs": [{"src": "img/68_1.jpg", "w": 759, "h": 689}, {"src": "img/68_2.jpg", "w": 620, "h": 620}, {"src": "img/68_3.jpg", "w": 815, "h": 593}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDre4aidamyquanw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDre4aidamyquanw.rar"]]}, {"n": 69, "page": 5, "title": "呂涅的王權與自由地獄先驅套裝MOD", "who": "呂涅", "note": "替換了呂涅的土豆服裝（Potato Set）。", "desc": "《光與影：33號遠征隊》呂涅的王權與自由地獄先驅套裝MOD，這款模組為遊戲角色呂涅添加了一套來自《王權與自由》地獄先驅套裝，自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/364950.html", "imgs": [{"src": "img/69_1.jpg", "w": 850, "h": 722}, {"src": "img/69_2.jpg", "w": 900, "h": 619}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvnwqzydyuw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvnwqzydyuw.rar"]]}, {"n": 70, "page": 5, "title": "瑪埃爾的天堂2克勞迪婭套裝MOD", "who": "瑪埃爾", "note": "替換了瑪埃爾的平民套裝（Civil Set）。", "desc": "《光與影：33號遠征隊》瑪埃爾的天堂2克勞迪婭套裝MOD，這款模組為遊戲角色瑪埃爾添加一套來自熱門遊戲《天堂2》克勞迪婭套裝。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/364949.html", "imgs": [{"src": "img/70_1.jpg", "w": 829, "h": 744}, {"src": "img/70_2.jpg", "w": 900, "h": 465}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDtiant2kldyw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDtiant2kldyw.rar"]]}, {"n": 71, "page": 5, "title": "熙艾爾的性感棒球隊服裝MOD", "who": "熙艾爾", "note": "替換了熙艾爾的法棍服裝和頭髮。", "desc": "《光與影：33號遠征隊》熙艾爾的性感棒球隊服裝MOD，這款模組為遊戲角色熙艾爾添加了一套性感的棒球隊服裝，自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/364600.html", "imgs": [{"src": "img/71_1.jpg", "w": 635, "h": 698}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaierxganbiuqfas.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDxiaierxganbiuqfas.rar"]]}, {"n": 72, "page": 5, "title": "呂涅的性感棒球隊服裝MOD", "who": "呂涅", "note": "替換了呂涅的法棍套裝和頭髮。", "desc": "《光與影：33號遠征隊》呂涅的性感棒球隊服裝MOD，這款模組為遊戲角色呂涅添加了一套性感的棒球隊服裝，自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/364599.html", "imgs": [{"src": "img/72_1.jpg", "w": 675, "h": 697}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvxganbqiufw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvxganbqiufw.rar"]]}, {"n": 73, "page": 5, "title": "古斯塔夫的復古眼鏡MOD", "who": "古斯塔夫", "note": "將DLC“花”髮型中的玫瑰替換為眼鏡，任何移除花朵的模組都會移除眼鏡。", "desc": "《光與影：33號遠征隊》古斯塔夫的復古眼鏡MOD，這款模組為遊戲角色古斯塔夫添加了一副復古風格的圓形眼鏡，兩種眼鏡變體。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/364277.html", "imgs": [{"src": "img/73_1.jpg", "w": 695, "h": 649}, {"src": "img/73_2.jpg", "w": 807, "h": 649}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDgstffguyanjsaw.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDgstffguyanjsaw.rar"]]}, {"n": 74, "page": 5, "title": "瑪埃爾的獵魔女團魯米服裝MOD", "who": "瑪埃爾", "note": "替換了瑪埃爾的遠征服。", "desc": "《光與影：33號遠征隊》瑪埃爾的獵魔女團魯米服裝MOD，這款模組為遊戲角色瑪埃爾添加一套來自熱門影視《獵魔女團》魯米的女團服裝。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/364276.html", "imgs": [{"src": "img/74_1.jpg", "w": 607, "h": 515}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlmntlumimaier.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlmntlumimaier.rar"]]}, {"n": 75, "page": 5, "title": "呂涅的獵魔女團米拉服裝MOD", "who": "呂涅", "note": "替換了呂涅的遠征服。", "desc": "《光與影：33號遠征隊》呂涅的獵魔女團米拉服裝MOD，這款模組為遊戲角色呂涅添加了一整套來自熱門影視《獵魔女團》米拉的女團服裝。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/364275.html", "imgs": [{"src": "img/75_1.jpg", "w": 592, "h": 493}, {"src": "img/75_2.jpg", "w": 584, "h": 509}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvnlmntmila.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvnlmntmila.rar"]]}, {"n": 76, "page": 6, "title": "熙艾爾的最終幻想16吉爾連衣裙MOD", "who": "熙艾爾", "note": "替換了熙艾爾的遠征服裝。", "desc": "《光與影：33號遠征隊》熙艾爾的最終幻想16吉爾連衣裙MOD，這款模組為遊戲角色熙艾爾添加了一整來自熱門遊戲《最終幻想16》吉爾的連衣裙，外套末端有布料物理特性，使用自定義的手部身體材質，因此不會受到影響皮膚紋理的其他模組的影響。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/361077.html", "imgs": [{"src": "img/76_1.jpg", "w": 582, "h": 672}, {"src": "img/76_2.jpg", "w": 657, "h": 781}, {"src": "img/76_3.jpg", "w": 861, "h": 636}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDzzhx16jierlyqunsd.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDzzhx16jierlyqunsd.rar"]]}, {"n": 77, "page": 6, "title": "呂涅的黑色印記露臍作戰服MOD", "who": "呂涅", "note": "替換了呂涅的塞壬套裝。", "desc": "《光與影：33號遠征隊》呂涅的黑色印記露臍作戰服MOD，這款模組為遊戲角色呂涅添加了一整套來自韓國遊戲《黑色印記》性感的露臍作戰服，自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/359711.html", "imgs": [{"src": "img/77_1.jpg", "w": 520, "h": 735}, {"src": "img/77_2.jpg", "w": 833, "h": 747}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvnheisyjzzdfs.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDlvnheisyjzzdfs.rar"]]}, {"n": 78, "page": 6, "title": "熙艾爾的黑色印記露臍作戰服MOD", "who": "熙艾爾", "note": "替換了熙艾爾的塞壬服裝。", "desc": "《光與影：33號遠征隊》熙艾爾的黑色印記露臍作戰服MOD，這款模組為遊戲角色熙艾爾添加了一整套來自韓國遊戲《黑色印記》性感的露臍作戰服，自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/359710.html", "imgs": [{"src": "img/78_1.jpg", "w": 697, "h": 734}, {"src": "img/78_2.jpg", "w": 711, "h": 748}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDheiseyjzzfssd.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDheiseyjzzfssd.rar"]]}, {"n": 79, "page": 6, "title": "熙艾爾的最終幻想7魅力鯨魚泳裝MOD", "who": "熙艾爾", "note": "分別替換了熙艾爾的泳裝2。", "desc": "《光與影：33號遠征隊》熙艾爾的最終幻想7魅力鯨魚泳裝MOD，這款模組為遊戲角色熙艾爾添加了一整套來自熱門遊戲《最終幻想7：重生》蒂法所穿著的魅力鯨魚泳裝。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/356491.html", "imgs": [{"src": "img/79_1.jpg", "w": 651, "h": 696}, {"src": "img/79_2.jpg", "w": 465, "h": 645}, {"src": "img/79_3.jpg", "w": 615, "h": 660}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDzzhx7meilijyxiaer.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDzzhx7meilijyxiaer.rar"]]}, {"n": 80, "page": 6, "title": "熙艾爾的街頭霸王松田勞拉格鬥服MOD", "who": "熙艾爾", "note": "分別替換了熙艾爾的塞壬服裝。", "desc": "《光與影：33號遠征隊》熙艾爾的街頭霸王松田勞拉格鬥服MOD，這款模組為遊戲角色熙艾爾添加了一件來自《街頭霸王》角色松田勞拉的格鬥服，包含自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/356093.html", "imgs": [{"src": "img/80_1.jpg", "w": 460, "h": 720}, {"src": "img/80_2.jpg", "w": 512, "h": 725}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDjtbwstllkass.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDjtbwstllkass.rar"]]}, {"n": 81, "page": 6, "title": "呂涅的街頭霸王5松田勞拉格鬥服MOD", "who": "呂涅", "note": "替換了呂涅的塞壬套裝。", "desc": "《光與影：33號遠征隊》呂涅的街頭霸王5松田勞拉格鬥服MOD，這款模組為遊戲角色呂涅添加一套來自《街頭霸王5》松田勞拉的格鬥服，包含自定義胸部、臀部和大腿物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/355799.html", "imgs": [{"src": "img/81_1.jpg", "w": 740, "h": 695}, {"src": "img/81_2.jpg", "w": 524, "h": 670}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDjtbw5stllgdfsa.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDjtbw5stllgdfsa.rar"]]}, {"n": 82, "page": 6, "title": "瑪埃爾的最終幻想15伊莉斯服裝MOD", "who": "瑪埃爾", "note": "替換了瑪埃爾的Sakapatate服裝。", "desc": "《光與影：33號遠征隊》瑪埃爾的最終幻想15伊莉斯服裝MOD，這款模組為遊戲角色瑪埃爾添加一套來自熱門動漫《最終幻想15》伊莉斯·亞米西提亞所穿著的服裝。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/355798.html", "imgs": [{"src": "img/82_1.jpg", "w": 484, "h": 618}, {"src": "img/82_2.jpg", "w": 630, "h": 691}, {"src": "img/82_3.jpg", "w": 772, "h": 543}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDzzhx15yilisfusasd.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDzzhx15yilisfusasd.rar"]]}, {"n": 83, "page": 6, "title": "維爾索的最終幻想16克萊夫服裝MOD", "who": "維爾索", "note": "替換維爾索的默認服裝。", "desc": "《光與影：33號遠征隊》維爾索的最終幻想16克萊夫服裝MOD，這款模組為遊戲角色維爾索添加了一套來自熱門遊戲《最終幻想16》的克萊夫的同款作戰服，斗篷有布料物理。感興趣的玩家快來3DM下載吧！", "url": "https://dl.3dmgame.com/patch/355797.html", "imgs": [{"src": "img/83_1.jpg", "w": 628, "h": 717}, {"src": "img/83_2.jpg", "w": 716, "h": 626}], "dl": [["電信", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDweisuoerdzzhxklfss.rar"], ["網通", "https://dl1.wsyhn.com/download2/buding/mod/GYY33HYZDweisuoerdzzhxklfss.rar"]]}];
+const DRIVE = id => `https://drive.google.com/drive/folders/${id}`;
+/* 雲端整合包：2026-10-25 從 Google 雲端資料夾逐層列出，只看檔名與大小，壓縮檔內容未解壓確認 */
+const PACK = [
+  { name: '存檔', path: '2026更新', link: DRIVE('1S-maqrdOeNip8CEO0SrgIyGg3jrtAnpN'), items: [
+    { n: '100%完美存檔2026.rar', size: '78 KB', tag: '存檔', note: '解壓後改名成要取代的那一格，例如 EXPEDITION_1.sav，放進存檔資料夾。先備份、先關 Steam 雲端同步。' },
+  ]},
+  { name: '整合包本體', path: '根目錄', link: DRIVE('1jdeuPObhJQh1Lp6b7pzVAN2l8yKRhhrV'), items: [
+    { n: '33號遠征隊整合包2.11版本.rar', size: '1.81 GB', tag: '整合包', note: '內容未確認，可能已包含下面這些 MOD。解壓後先別全部放進遊戲。' },
+    { n: 'Gloss管理器.rar', size: '90.4 MB', tag: '工具', note: 'Gloss Mod Manager。建議改從官方網站下載。' },
+    { n: '有問題聯繫客服.txt', size: '—', tag: '說明', note: '雲端預覽是空白的。' },
+  ]},
+  { name: '功能 MOD', path: '2026更新 / 【功能】合集', link: DRIVE('1THH6DdJDYk2WrjPBSERyo2PfBmy2Lq4Q'), items: [
+    { n: '【功能】傷害上限999999.zip', size: '48 KB', tag: '功能' },
+    { n: '【功能】自動qte改成完美qte.zip', size: '15 KB', tag: '功能' },
+    { n: '【功能】更簡單的閃避和格擋2倍.zip', size: '1 KB', tag: '功能', warn: '2 倍、3 倍、5 倍只能選一個裝' },
+    { n: '【功能】更簡單的閃避和格擋3倍.zip', size: '2 KB', tag: '功能', warn: '2 倍、3 倍、5 倍只能選一個裝' },
+    { n: '【功能】更簡單的閃避和格擋5倍.zip', size: '2 KB', tag: '功能', warn: '2 倍、3 倍、5 倍只能選一個裝' },
+    { n: '【功能】過場動畫解鎖30幀.rar', size: '669 KB', tag: '功能' },
+    { n: '【功能】商店出售所有物品.最新版.7z', size: '14 KB', tag: '功能' },
+    { n: '【功能】增加技能描述.zip', size: '909 KB', tag: '功能' },
+    { n: '修改器最新版.rar', size: '782 KB', tag: '修改器', warn: '修改器通常是 .exe 執行檔，風險最高。來源不明不要執行，至少先用 Windows Defender 掃過' },
+  ]},
+  { name: '小地圖指南針', path: '2026更新 / 【功能】合集 / 小地圖指南針', link: DRIVE('1MF9q_YTcP4BzW0dSH-sE5n_3w_K4BE5i'), items: [
+    { n: '小地圖.zip', size: '6.1 MB', tag: '功能' },
+    { n: '指南針.zip', size: '77 KB', tag: '功能' },
+    { n: 'dml.zip', size: '33 KB', tag: '功能', note: '用途未標示，可能是小地圖需要的前置檔。' },
+  ]},
+  { name: '服裝更新合集', path: '2026更新 / 【服裝】更新合集', link: DRIVE('14Eevv_UaS9yC0TOtnLddjmwz8hXHtH_g'), items: [
+    { n: '地獄先鋒——呂涅土豆偶服裝', size: '30.5 MB', tag: '呂涅', img: 'img/pack_1.jpg' },
+    { n: '克勞迪婭——瑪埃爾平民服裝', size: '6.4 MB', tag: '瑪埃爾', img: 'img/pack_2.jpg' },
+    { n: '假面騎士——古斯塔夫盧米埃爾套裝', size: '51 MB', tag: '古斯塔夫', img: 'img/pack_3.jpg' },
+    { n: '黑騎士——維爾索土豆偶服裝', size: '20.4 MB', tag: '維爾索', img: 'img/pack_4.jpg' },
+    { n: 'WOP騎士——瑪埃爾法棍服裝', size: '12.2 MB', tag: '瑪埃爾', img: 'img/pack_5.jpg' },
+  ]},
+  { name: '2B 服裝另一個版本', path: '2026更新 / 2b服裝另一個版本', link: DRIVE('1PqyjaM2I1FqMTbnQ_j-THlXWjrnG4b8j'), items: [
+    { n: '【服裝】2b替換瑪埃爾平民服裝.7z', size: '10.9 MB', tag: '瑪埃爾' },
+    { n: '【服裝】2b替換呂涅泳裝2和默認服裝.7z', size: '11.8 MB', tag: '呂涅', warn: '跟目前裝的金黑泳裝都換呂涅泳裝，同時裝只有一個會生效' },
+    { n: '【服裝】2b替換熙艾爾泳裝2和默認服裝.7z', size: '11.8 MB', tag: '熙艾爾' },
+  ]},
+];
+const PACK_COUNT = PACK.reduce((s, g) => s + g.items.length, 0);
+/* 整合包 2.1 解壓後的內容，連結指向 Elsa 自己雲端上的副本 */
+const P2 = {"costumes": [{"folder": "其他美化", "name": "邪教徒敵人模型修改", "kind": "NPC美化", "target": "", "who": ["NPC"], "slot": "全部", "size": 1014986, "conflict": [], "img": {"src": "img/pk_0.jpg", "w": 418, "h": 884}, "link": "https://drive.google.com/file/d/1J_LN5O_m2LQXE0-BrGfgaJ6s3ws7rNuw/view", "dup": [], "file": "【NPC美化】邪教徒敵人模型修改.7z"}, {"folder": "其他美化", "name": "P5風格433", "kind": "服裝", "target": "全隊角色", "who": ["全隊"], "slot": "全部", "size": 57924596, "conflict": [], "img": {"src": "img/pk_1.jpg", "w": 900, "h": 449}, "link": "https://drive.google.com/file/d/1p5yIV1hbM-rFH9yIZNW5f67Kt4wgo19W/view", "dup": [], "file": "【服裝】P5風格433—全隊角色.zip"}, {"folder": "其他美化", "name": "阿凡達風格373", "kind": "服裝", "target": "全隊角色", "who": ["全隊"], "slot": "全部", "size": 24596106, "conflict": [], "img": {"src": "img/pk_2.jpg", "w": 900, "h": 417}, "link": "https://drive.google.com/file/d/1koQhgIhQT0bqjGxLsNerqhfECGPDao1w/view", "dup": [], "file": "【服裝】阿凡達風格373—全隊角色.7z"}, {"folder": "古斯塔夫和維爾索", "name": "FF16 Clive 的服裝", "kind": "服裝", "target": "維爾索默認服裝", "who": ["古斯塔夫", "維爾索"], "slot": "默認服裝", "size": 18827432, "conflict": ["古斯塔夫默認服裝（3 個）", "維爾索默認服裝（3 個）"], "img": {"src": "img/pk_3.jpg", "w": 267, "h": 593}, "link": "https://drive.google.com/file/d/1UUpflm09xXF8B7vNXSSlOPLzNU310QlR/view", "dup": [{"n": 83, "title": "維爾索的最終幻想16克萊夫服裝MOD"}], "file": "【服裝】FF16 Clive 的服裝—維爾索默認服裝.rar"}, {"folder": "古斯塔夫和維爾索", "name": "Nero DMC5", "kind": "服裝", "target": "古斯塔夫泳裝改", "who": ["古斯塔夫", "維爾索"], "slot": "泳裝", "size": 43213738, "conflict": [], "img": {"src": "img/pk_4.jpg", "w": 900, "h": 1311}, "link": "https://drive.google.com/file/d/15XHjatC_zUtBcknH9F2MaXK_i1wlOFvg/view", "dup": [], "file": "【服裝】Nero DMC5—古斯塔夫泳裝改.rar"}, {"folder": "古斯塔夫和維爾索", "name": "基努裡維斯", "kind": "服裝", "target": "古斯塔夫臉型改", "who": ["古斯塔夫", "維爾索"], "slot": "臉型", "size": 59276355, "conflict": [], "img": null, "link": "https://drive.google.com/file/d/1IkcBrV16yoo3WF-3zrADysOviIyhGb_a/view", "dup": [], "file": "【服裝】基努裡維斯—古斯塔夫臉型改.rar"}, {"folder": "古斯塔夫和維爾索", "name": "白色西裝", "kind": "服裝", "target": "古斯塔夫默認", "who": ["古斯塔夫", "維爾索"], "slot": "默認服裝", "size": 2259755, "conflict": ["古斯塔夫默認服裝（3 個）", "維爾索默認服裝（3 個）"], "img": {"src": "img/pk_6.jpg", "w": 445, "h": 600}, "link": "https://drive.google.com/file/d/1fysc8mgKM8QnJPXJILhjag6zEwieYt0_/view", "dup": [], "file": "【服裝】白色西裝—古斯塔夫默認.rar"}, {"folder": "古斯塔夫和維爾索", "name": "黑色大衣", "kind": "服裝", "target": "維爾索默認服裝", "who": ["古斯塔夫", "維爾索"], "slot": "默認服裝", "size": 4362602, "conflict": ["古斯塔夫默認服裝（3 個）", "維爾索默認服裝（3 個）"], "img": {"src": "img/pk_7.jpg", "w": 495, "h": 751}, "link": "https://drive.google.com/file/d/1xf7uKW2om4kUFynRcHHuDr_Xp14f3JeC/view", "dup": [], "file": "【服裝】黑色大衣—維爾索默認服裝.7z"}, {"folder": "呂涅和熙艾爾", "name": "夏日清涼", "kind": "服裝", "target": "（呂涅+熙艾爾）", "who": ["呂涅", "熙艾爾"], "slot": "未標示", "size": 10484614, "conflict": [], "img": null, "link": "https://drive.google.com/file/d/1hvSTdZ3QkT8rZ0f-EDGbMU7TGo9FJmLN/view", "dup": [], "file": "【服裝】夏日清涼—（呂涅+熙艾爾）.rar"}, {"folder": "呂涅和熙艾爾", "name": "泳裝1改成藍色", "kind": "服裝", "target": "呂涅和熙艾爾", "who": ["呂涅", "熙艾爾"], "slot": "泳裝1", "size": 15869921, "conflict": ["呂涅泳裝1（4 個）", "熙艾爾泳裝1（2 個）"], "img": null, "link": "https://drive.google.com/file/d/14hk63lxr0KP0qLmDsPTZBRPBjC3J5jXh/view", "dup": [], "file": "【服裝】泳裝1改成藍色——呂涅和熙艾爾.rar"}, {"folder": "呂涅和熙艾爾", "name": "泳裝1改成黑金色", "kind": "服裝", "target": "呂涅和熙艾爾", "who": ["呂涅", "熙艾爾"], "slot": "泳裝1", "size": 16197521, "conflict": ["呂涅泳裝1（4 個）", "熙艾爾泳裝1（2 個）"], "img": null, "link": "https://drive.google.com/file/d/1VIeB99kJX_khtVQXH3UekbQiOCXLleok/view", "dup": [], "file": "【服裝】泳裝1改成黑金色——呂涅和熙艾爾.rar"}, {"folder": "呂涅和熙艾爾", "name": "綠洲泳衣", "kind": "服裝", "target": "呂涅和熙艾爾", "who": ["呂涅", "熙艾爾"], "slot": "未標示", "size": 23056686, "conflict": [], "img": {"src": "img/pk_11.jpg", "w": 900, "h": 688}, "link": "https://drive.google.com/file/d/16CkHmj6UK6W04fjw6QNV8Ao05ofWQq5z/view", "dup": [], "file": "【服裝】綠洲泳衣—呂涅和熙艾爾.rar"}, {"folder": "呂涅和熙艾爾", "name": "超大服裝合集435", "kind": "服裝", "target": "呂涅和熙艾爾", "who": ["呂涅", "熙艾爾"], "slot": "未標示", "size": 165730197, "conflict": [], "img": {"src": "img/pk_12.jpg", "w": 900, "h": 291}, "link": "https://drive.google.com/file/d/149EconXSDATb7pkhf0APZfTT_rFXpxwk/view", "dup": [], "file": "【服裝】超大服裝合集435—呂涅和熙艾爾.7z"}, {"folder": "呂涅美化", "name": "2B服飾替換（普通版）", "kind": "服裝", "target": "呂涅默認改", "who": ["呂涅"], "slot": "默認服裝", "size": 15910253, "conflict": ["呂涅默認服裝（20 個）"], "img": null, "link": "https://drive.google.com/file/d/1xjWZM6ImsSlgE42pWvwUjECb65XLfRpV/view", "dup": [{"n": 51, "title": "呂涅的尼爾轉生2B裙裝MOD"}, {"n": 56, "title": "呂涅的尼爾2B裙裝MOD"}], "file": "【服裝】2B服飾替換（普通版）_呂涅默認改_.rar"}, {"folder": "呂涅美化", "name": "Feline Sorcere", "kind": "服裝", "target": "呂涅遠征隊服改", "who": ["呂涅"], "slot": "遠征隊服", "size": 36573453, "conflict": ["呂涅遠征隊服（3 個）"], "img": {"src": "img/pk_14.jpg", "w": 900, "h": 1219}, "link": "https://drive.google.com/file/d/1XTquOtBueMVb_WvrCXyTdO_5kk6sH2ic/view", "dup": [], "file": "【服裝】Feline Sorcere—呂涅遠征隊服改.rar"}, {"folder": "呂涅美化", "name": "FF7蒂法服裝", "kind": "服裝", "target": "呂涅遠征隊改", "who": ["呂涅"], "slot": "遠征隊服", "size": 44232831, "conflict": ["呂涅遠征隊服（3 個）"], "img": {"src": "img/pk_15.jpg", "w": 900, "h": 1112}, "link": "https://drive.google.com/file/d/1U0aE65HJRm8d78LzsaS4aJgy_MVORa2_/view", "dup": [], "file": "【服裝】FF7蒂法服裝.—呂涅遠征隊改.rar"}, {"folder": "呂涅美化", "name": "FF7蒂法藍色泳裝", "kind": "服裝", "target": "呂涅泳裝1改", "who": ["呂涅"], "slot": "泳裝1", "size": 12266093, "conflict": ["呂涅泳裝1（4 個）"], "img": null, "link": "https://drive.google.com/file/d/1vcPelzUJXbhpLJ07CQQ2YYKCd11yQshf/view", "dup": [], "file": "【服裝】FF7蒂法藍色泳裝—呂涅泳裝1改.7z"}, {"folder": "呂涅美化", "name": "JK", "kind": "服裝", "target": "呂涅默認", "who": ["呂涅"], "slot": "默認服裝", "size": 25578933, "conflict": ["呂涅默認服裝（20 個）"], "img": {"src": "img/pk_17.jpg", "w": 359, "h": 728}, "link": "https://drive.google.com/file/d/1DEtRJpH_EFoWU2BHXNijp-f3XnYRFZdG/view", "dup": [], "file": "【服裝】JK—呂涅默認.zip"}, {"folder": "呂涅美化", "name": "Juri Han", "kind": "服裝", "target": "呂涅默認改", "who": ["呂涅"], "slot": "默認服裝", "size": 42249618, "conflict": ["呂涅默認服裝（20 個）"], "img": {"src": "img/pk_18.jpg", "w": 900, "h": 1033}, "link": "https://drive.google.com/file/d/1ntQ8kgW51kRo-uv27iGnGoIZMKIhyfBJ/view", "dup": [], "file": "【服裝】Juri Han—呂涅默認改.rar"}, {"folder": "呂涅美化", "name": "RogueSweater", "kind": "服裝", "target": "呂涅默認改", "who": ["呂涅"], "slot": "默認服裝", "size": 16201916, "conflict": ["呂涅默認服裝（20 個）"], "img": {"src": "img/pk_19.jpg", "w": 900, "h": 1054}, "link": "https://drive.google.com/file/d/1rDwOZ30ujsZ-quVfj0N9ruVEeJUV2Q0-/view", "dup": [], "file": "【服裝】RogueSweater—呂涅默認改.rar"}, {"folder": "呂涅美化", "name": "兔女郎", "kind": "服裝", "target": "呂涅替換初始服裝", "who": ["呂涅"], "slot": "默認服裝", "size": 8025309, "conflict": ["呂涅默認服裝（20 個）"], "img": null, "link": "https://drive.google.com/file/d/18OGfAh66QShtBcyV10dDBsRJpbtknDVT/view", "dup": [], "file": "【服裝】兔女郎—呂涅替換初始服裝.rar"}, {"folder": "呂涅美化", "name": "軍用服裝", "kind": "服裝", "target": "呂涅默認服裝", "who": ["呂涅"], "slot": "默認服裝", "size": 24704348, "conflict": ["呂涅默認服裝（20 個）"], "img": {"src": "img/pk_21.jpg", "w": 639, "h": 775}, "link": "https://drive.google.com/file/d/13dWu29IRMQ8ENuFqfX_evH5ryxYVz_Zc/view", "dup": [], "file": "【服裝】軍用服裝—呂涅默認服裝.zip"}, {"folder": "呂涅美化", "name": "劍星女忍服裝", "kind": "服裝", "target": "呂涅默認服裝", "who": ["呂涅"], "slot": "默認服裝", "size": 43282860, "conflict": ["呂涅默認服裝（20 個）"], "img": {"src": "img/pk_22.jpg", "w": 642, "h": 590}, "link": "https://drive.google.com/file/d/1RmSnpPEaRulHXb2z4o2rCse2auKgGxzY/view", "dup": [], "file": "【服裝】劍星女忍服裝—呂涅默認服裝.7z"}, {"folder": "呂涅美化", "name": "劍星牡丹服裝", "kind": "服裝", "target": "呂涅默認", "who": ["呂涅"], "slot": "默認服裝", "size": 17388941, "conflict": ["呂涅默認服裝（20 個）"], "img": {"src": "img/pk_23.jpg", "w": 539, "h": 818}, "link": "https://drive.google.com/file/d/148wuIUvPnaZDYLxjDGc-rorbpq9Euc1Z/view", "dup": [], "file": "【服裝】劍星牡丹服裝—呂涅默認.7z"}, {"folder": "呂涅美化", "name": "劍星神經鏈接", "kind": "服裝", "target": "呂涅默認改", "who": ["呂涅"], "slot": "默認服裝", "size": 30407802, "conflict": ["呂涅默認服裝（20 個）"], "img": {"src": "img/pk_24.jpg", "w": 900, "h": 1207}, "link": "https://drive.google.com/file/d/1SsDaKVDECRSvgUxNwvOqfqyYCTmBESN6/view", "dup": [], "file": "【服裝】劍星神經鏈接—呂涅默認改.rar"}, {"folder": "呂涅美化", "name": "可萊雅服裝裁剪", "kind": "服裝", "target": "呂涅服裝修改", "who": ["呂涅"], "slot": "未標示", "size": 14116433, "conflict": [], "img": null, "link": "https://drive.google.com/file/d/15-iZ8XJ_VhKzy5t-kqTeT77eHX54btox/view", "dup": [], "file": "【服裝】可萊雅服裝裁剪—呂涅服裝修改.rar"}, {"folder": "呂涅美化", "name": "葉奈法", "kind": "服裝", "target": "呂涅泳裝1", "who": ["呂涅"], "slot": "泳裝1", "size": 33997613, "conflict": ["呂涅泳裝1（4 個）"], "img": {"src": "img/pk_26.jpg", "w": 355, "h": 682}, "link": "https://drive.google.com/file/d/1LmHoJWwNsN9sYk74F4rdYtBs5GgaH8fr/view", "dup": [], "file": "【服裝】葉奈法—呂涅泳裝1.rar"}, {"folder": "呂涅美化", "name": "和服（短裙款式）", "kind": "服裝", "target": "替換塞壬套裝（呂涅）", "who": ["呂涅"], "slot": "塞壬套裝", "size": 9710717, "conflict": ["呂涅塞壬套裝（2 個）"], "img": null, "link": "https://drive.google.com/file/d/1-YVB4CQZeDEZiB4zEmgDDfEFPmWleB69/view", "dup": [], "file": "【服裝】和服（短裙款式）——替換塞壬套裝（呂涅）.rar"}, {"folder": "呂涅美化", "name": "和服（長裙款式）", "kind": "服裝", "target": "替換塞壬套裝（呂涅）", "who": ["呂涅"], "slot": "塞壬套裝", "size": 9412087, "conflict": ["呂涅塞壬套裝（2 個）"], "img": null, "link": "https://drive.google.com/file/d/1j9bOLtI_paoObkpRP3dEbeNfWEj5jE4H/view", "dup": [], "file": "【服裝】和服（長裙款式）——替換塞壬套裝（呂涅）.rar"}, {"folder": "呂涅美化", "name": "嘉米服裝", "kind": "服裝", "target": "呂涅遠征隊服改", "who": ["呂涅"], "slot": "遠征隊服", "size": 6581658, "conflict": ["呂涅遠征隊服（3 個）"], "img": null, "link": "https://drive.google.com/file/d/1arwg8jCIG8HLtjRzPzefBQZDyPcEMws4/view", "dup": [], "file": "【服裝】嘉米服裝—呂涅遠征隊服改.rar"}, {"folder": "呂涅美化", "name": "大燈1號", "kind": "服裝", "target": "呂涅泳裝12", "who": ["呂涅"], "slot": "泳裝1/2", "size": 10612377, "conflict": [], "img": null, "link": "https://drive.google.com/file/d/1n5mNUzivBaKvSlKv4EcXz7lcFgnG0YsE/view", "dup": [], "file": "【服裝】大燈1號—呂涅泳裝12.zip"}, {"folder": "呂涅美化", "name": "大燈2號", "kind": "服裝", "target": "替換呂涅泳裝", "who": ["呂涅"], "slot": "泳裝", "size": 10181418, "conflict": [], "img": null, "link": "https://drive.google.com/file/d/1-TPqSjkrNubSJ5dJB2OB4SEFxCSIa9Hj/view", "dup": [], "file": "【服裝】大燈2號—替換呂涅泳裝.zip"}, {"folder": "呂涅美化", "name": "大燈服裝#自帶汙垢去除mod", "kind": "服裝", "target": "呂涅默認服裝", "who": ["呂涅"], "slot": "默認服裝", "size": 10209916, "conflict": ["呂涅默認服裝（20 個）"], "img": null, "link": "https://drive.google.com/file/d/1o6ufdXJ427MgWJCK2THxKPvCR7kgr4tD/view", "dup": [], "file": "【服裝】大燈服裝#自帶汙垢去除mod—呂涅默認服裝.rar"}, {"folder": "呂涅美化", "name": "女僕裝", "kind": "服裝", "target": "替換呂涅默認服裝", "who": ["呂涅"], "slot": "默認服裝", "size": 23642239, "conflict": ["呂涅默認服裝（20 個）"], "img": null, "link": "https://drive.google.com/file/d/1MRE3G2ngTQcF2SndrxyNKFEQtAfRYY63/view", "dup": [], "file": "【服裝】女僕裝—替換呂涅默認服裝.rar"}, {"folder": "呂涅美化", "name": "月神服裝", "kind": "服裝", "target": "呂涅默認", "who": ["呂涅"], "slot": "默認服裝", "size": 1071130, "conflict": ["呂涅默認服裝（20 個）"], "img": {"src": "img/pk_34.jpg", "w": 333, "h": 575}, "link": "https://drive.google.com/file/d/1GCK04t4xBrn6Z9RsBY6u8NH2ueszUfs7/view", "dup": [], "file": "【服裝】月神服裝—呂涅默認.7z"}, {"folder": "呂涅美化", "name": "服裝裁剪1", "kind": "服裝", "target": "呂涅半身裙修改", "who": ["呂涅"], "slot": "平民裙裝", "size": 10197269, "conflict": ["呂涅平民裙裝（2 個）"], "img": {"src": "img/pk_35.jpg", "w": 487, "h": 888}, "link": "https://drive.google.com/file/d/1LKYhzVFZMFjGcP8wNf_Pj3TemkAjJ9TY/view", "dup": [], "file": "【服裝】服裝裁剪1—呂涅半身裙修改.rar"}, {"folder": "呂涅美化", "name": "服裝裁剪2", "kind": "服裝", "target": "呂涅半身裙修改", "who": ["呂涅"], "slot": "平民裙裝", "size": 10144931, "conflict": ["呂涅平民裙裝（2 個）"], "img": {"src": "img/pk_36.jpg", "w": 460, "h": 939}, "link": "https://drive.google.com/file/d/1_wGhLlaKi_8zmLU2fiw1mP0wJuFRtZEL/view", "dup": [], "file": "【服裝】服裝裁剪2—呂涅半身裙修改.rar"}, {"folder": "呂涅美化", "name": "服裝裁剪", "kind": "服裝", "target": "替換呂涅平民裙裝", "who": ["呂涅"], "slot": "平民服裝", "size": 10264356, "conflict": [], "img": null, "link": "https://drive.google.com/file/d/1ElYOG6MvigZjD8bhZIxsOitBqPwSPA2P/view", "dup": [], "file": "【服裝】服裝裁剪——替換呂涅平民裙裝.7z"}, {"folder": "呂涅美化", "name": "校服", "kind": "服裝", "target": "呂涅默認服裝改", "who": ["呂涅"], "slot": "默認服裝", "size": 50868274, "conflict": ["呂涅默認服裝（20 個）"], "img": null, "link": "https://drive.google.com/file/d/1D1N_ZVReLDtJ9slrRwLLUrFMtdj88t8a/view", "dup": [], "file": "【服裝】校服—呂涅默認服裝改.rar"}, {"folder": "呂涅美化", "name": "混合泳裝和默認服裝", "kind": "服裝", "target": "呂涅默認服裝", "who": ["呂涅"], "slot": "默認服裝", "size": 6215220, "conflict": ["呂涅默認服裝（20 個）"], "img": {"src": "img/pk_39.jpg", "w": 514, "h": 757}, "link": "https://drive.google.com/file/d/11O1D9t9-OKevqiJBi9EyjB6klAL4VlCx/view", "dup": [], "file": "【服裝】混合泳裝和默認服裝—呂涅默認服裝.rar"}, {"folder": "呂涅美化", "name": "牛仔T恤", "kind": "服裝", "target": "呂涅默認服裝", "who": ["呂涅"], "slot": "默認服裝", "size": 13665230, "conflict": ["呂涅默認服裝（20 個）"], "img": null, "link": "https://drive.google.com/file/d/1Sm24D4MhDWPrPjbBv_V7KBWX0Zf2URSl/view", "dup": [], "file": "【服裝】牛仔T恤—呂涅默認服裝.rar"}, {"folder": "呂涅美化", "name": "第一裔(無手套)", "kind": "服裝", "target": "呂涅默認服裝", "who": ["呂涅"], "slot": "默認服裝", "size": 24053019, "conflict": ["呂涅默認服裝（20 個）"], "img": {"src": "img/pk_41.jpg", "w": 842, "h": 949}, "link": "https://drive.google.com/file/d/1vRtN4hnXxIaH_jp_LIQgw8YFTlPYa-5T/view", "dup": [{"n": 24, "title": "呂涅的第一後裔終極沃爾比緊身衣MOD"}, {"n": 28, "title": "呂涅的第一後裔性感牛仔裝MOD"}], "file": "【服裝】第一裔(無手套)—呂涅默認服裝.rar"}, {"folder": "呂涅美化", "name": "第一裔(有手套)", "kind": "服裝", "target": "呂涅默認服裝", "who": ["呂涅"], "slot": "默認服裝", "size": 24044742, "conflict": ["呂涅默認服裝（20 個）"], "img": null, "link": "https://drive.google.com/file/d/1zzkBtkwry2pZu9kdfFzPkK7HODjQhaXc/view", "dup": [{"n": 24, "title": "呂涅的第一後裔終極沃爾比緊身衣MOD"}, {"n": 28, "title": "呂涅的第一後裔性感牛仔裝MOD"}], "file": "【服裝】第一裔(有手套)—呂涅默認服裝.rar"}, {"folder": "呂涅美化", "name": "輕薄服裝", "kind": "服裝", "target": "呂涅克萊雅", "who": ["呂涅"], "slot": "克萊雅服裝", "size": 10004841, "conflict": [], "img": {"src": "img/pk_43.jpg", "w": 644, "h": 812}, "link": "https://drive.google.com/file/d/1KyOAKhVrxe6L6YJ8l3q3fcG84uiSvUt_/view", "dup": [], "file": "【服裝】輕薄服裝—呂涅克萊雅.7z"}, {"folder": "呂涅美化", "name": "運動裝", "kind": "服裝", "target": "呂涅", "who": ["呂涅"], "slot": "未標示", "size": 19965682, "conflict": [], "img": null, "link": "https://drive.google.com/file/d/1T94Nh32jmWqDMvgys0YZUKvpZlXFMP-S/view", "dup": [], "file": "【服裝】運動裝—呂涅.rar"}, {"folder": "呂涅美化", "name": "鏤花服裝", "kind": "服裝", "target": "呂涅默認服裝", "who": ["呂涅"], "slot": "默認服裝", "size": 10234407, "conflict": ["呂涅默認服裝（20 個）"], "img": {"src": "img/pk_45.jpg", "w": 369, "h": 747}, "link": "https://drive.google.com/file/d/1jSV_DEfkJ_zIhFzLz24jdy_oajEsWjTH/view", "dup": [], "file": "【服裝】鏤花服裝—呂涅默認服裝.7z"}, {"folder": "呂涅美化", "name": "黑貓服裝", "kind": "服裝", "target": "呂涅默認服裝", "who": ["呂涅"], "slot": "默認服裝", "size": 21229912, "conflict": ["呂涅默認服裝（20 個）"], "img": null, "link": "https://drive.google.com/file/d/19UlX1_N5kuOURCgyf1zf_ZCZk6856Wcp/view", "dup": [], "file": "【服裝】黑貓服裝—呂涅默認服裝.rar"}, {"folder": "呂涅美化", "name": "黑色指甲", "kind": "服裝", "target": "呂涅", "who": ["呂涅"], "slot": "指甲", "size": 19371171, "conflict": [], "img": null, "link": "https://drive.google.com/file/d/1txe40thbM-ZeRmI24raMRvgz_H-4_g8K/view", "dup": [], "file": "【服裝】黑色指甲——呂涅.rar"}, {"folder": "呂涅美化", "name": "默認服裝修改1", "kind": "服裝", "target": "呂涅默認", "who": ["呂涅"], "slot": "默認服裝", "size": 3140724, "conflict": ["呂涅默認服裝（20 個）"], "img": {"src": "img/pk_48.jpg", "w": 453, "h": 612}, "link": "https://drive.google.com/file/d/14R_CFh6CQ7kfktp5TL22tMLZNL2Qerla/view", "dup": [], "file": "【服裝】默認服裝修改1—呂涅默認.zip"}, {"folder": "呂涅美化", "name": "克蕾雅人物替換", "kind": "美化", "target": "呂涅模型替換", "who": ["呂涅"], "slot": "模型替換", "size": 22656900, "conflict": [], "img": {"src": "img/pk_49.jpg", "w": 900, "h": 675}, "link": "https://drive.google.com/file/d/1wqhZ2weAR9fp_oYGwVMrVkul-vXO2D1r/view", "dup": [], "file": "【美化】克蕾雅人物替換—呂涅模型替換.zip"}, {"folder": "呂涅美化", "name": "刪除面部字母", "kind": "美化", "target": "呂涅", "who": ["呂涅"], "slot": "臉部", "size": 42289359, "conflict": [], "img": {"src": "img/pk_50.jpg", "w": 900, "h": 498}, "link": "https://drive.google.com/file/d/1LQwR1NAHwV9EP0_TGyCOOZg--FIaugmf/view", "dup": [], "file": "【美化】刪除面部字母—呂涅.rar"}, {"folder": "熙艾爾美化", "name": "2B小姐姐（短裙版本）", "kind": "服裝", "target": "熙艾爾默認改", "who": ["熙艾爾"], "slot": "默認服裝", "size": 20138611, "conflict": ["熙艾爾默認服裝（12 個）"], "img": null, "link": "https://drive.google.com/file/d/19Mt3CPJmPgkd-By5QMqvidyyK0dC9yVh/view", "dup": [{"n": 50, "title": "熙艾爾的尼爾轉生2B裙裝MOD"}], "file": "【服裝】2B小姐姐（短裙版本）_熙艾爾默認改.rar"}, {"folder": "熙艾爾美化", "name": "2B服飾替換（普通版）", "kind": "服裝", "target": "熙艾爾默認改", "who": ["熙艾爾"], "slot": "默認服裝", "size": 16062574, "conflict": ["熙艾爾默認服裝（12 個）"], "img": {"src": "img/pk_52.jpg", "w": 706, "h": 995}, "link": "https://drive.google.com/file/d/1KURMEH_OsIo7S0sV609BxHYWp81QJ-A6/view", "dup": [{"n": 50, "title": "熙艾爾的尼爾轉生2B裙裝MOD"}], "file": "【服裝】2B服飾替換（普通版）_熙艾爾默認改.rar"}, {"folder": "熙艾爾美化", "name": "Nikki愛麗絲服裝", "kind": "服裝", "target": "熙艾爾默認服裝", "who": ["熙艾爾"], "slot": "默認服裝", "size": 34034462, "conflict": ["熙艾爾默認服裝（12 個）"], "img": {"src": "img/pk_53.jpg", "w": 428, "h": 777}, "link": "https://drive.google.com/file/d/1qmLo3_yEtl4WZZUa373k_xS6_QMagGQ1/view", "dup": [], "file": "【服裝】Nikki愛麗絲服裝—熙艾爾默認服裝.7z"}, {"folder": "熙艾爾美化", "name": "Nikki愛麗絲服裝裁剪", "kind": "服裝", "target": "熙艾爾默認服裝", "who": ["熙艾爾"], "slot": "默認服裝", "size": 39006831, "conflict": ["熙艾爾默認服裝（12 個）"], "img": {"src": "img/pk_54.jpg", "w": 408, "h": 339}, "link": "https://drive.google.com/file/d/11dwQeQuBUarXEnxtfWMRPoSvOyDwKL0F/view", "dup": [], "file": "【服裝】Nikki愛麗絲服裝裁剪—熙艾爾默認服裝.7z"}, {"folder": "熙艾爾美化", "name": "兔女郎", "kind": "服裝", "target": "熙艾爾—替換初始服裝", "who": ["熙艾爾"], "slot": "默認服裝", "size": 10629798, "conflict": ["熙艾爾默認服裝（12 個）"], "img": {"src": "img/pk_55.jpg", "w": 492, "h": 907}, "link": "https://drive.google.com/file/d/1-DlfjXqP_74s6Dv-tVuXtz1-JI4WbRzA/view", "dup": [], "file": "【服裝】兔女郎—熙艾爾—替換初始服裝.rar"}, {"folder": "熙艾爾美化", "name": "劍星天驕王牌", "kind": "服裝", "target": "熙艾爾默認改", "who": ["熙艾爾"], "slot": "默認服裝", "size": 21852762, "conflict": ["熙艾爾默認服裝（12 個）"], "img": {"src": "img/pk_56.jpg", "w": 488, "h": 855}, "link": "https://drive.google.com/file/d/1dfqSHvYazv_IpBqIKiLgPXRSWWMBTrX6/view", "dup": [], "file": "【服裝】劍星天驕王牌—熙艾爾默認改.rar"}, {"folder": "熙艾爾美化", "name": "大燈服裝", "kind": "服裝", "target": "熙艾爾默認服裝", "who": ["熙艾爾"], "slot": "默認服裝", "size": 11768665, "conflict": ["熙艾爾默認服裝（12 個）"], "img": {"src": "img/pk_57.jpg", "w": 332, "h": 631}, "link": "https://drive.google.com/file/d/1lzhupMyQiXPqaNcUsk-QEZcXkj9o4q9q/view", "dup": [], "file": "【服裝】大燈服裝—熙艾爾默認服裝.zip"}, {"folder": "熙艾爾美化", "name": "春麗", "kind": "服裝", "target": "熙艾爾默認改", "who": ["熙艾爾"], "slot": "默認服裝", "size": 768649, "conflict": ["熙艾爾默認服裝（12 個）"], "img": {"src": "img/pk_58.jpg", "w": 830, "h": 907}, "link": "https://drive.google.com/file/d/1XLMGCV1H3rvoMQKiI04wbRaw89yRdEnB/view", "dup": [], "file": "【服裝】春麗—熙艾爾默認改.rar"}, {"folder": "熙艾爾美化", "name": "第一後裔服裝", "kind": "服裝", "target": "熙艾爾默認服裝", "who": ["熙艾爾"], "slot": "默認服裝", "size": 14433946, "conflict": ["熙艾爾默認服裝（12 個）"], "img": {"src": "img/pk_59.jpg", "w": 900, "h": 685}, "link": "https://drive.google.com/file/d/1U-scuFVBBiOuCouaV4AsVIEaSPregm6M/view", "dup": [{"n": 12, "title": "熙艾爾的第一後裔夏季泳裝MOD"}, {"n": 23, "title": "熙艾爾的第一後裔終極沃爾比緊身衣MOD"}, {"n": 27, "title": "熙艾爾的第一後裔性感牛仔裝MOD"}], "file": "【服裝】第一後裔服裝—熙艾爾默認服裝.zip"}, {"folder": "熙艾爾美化", "name": "蒂法泳裝#需要安裝服裝前置1", "kind": "服裝", "target": "熙艾爾泳裝2", "who": ["熙艾爾"], "slot": "泳裝2", "size": 17779488, "conflict": [], "img": {"src": "img/pk_60.jpg", "w": 499, "h": 776}, "link": "https://drive.google.com/file/d/1iSpWKY6vogQFktPqveX7VX7CktioeXlF/view", "dup": [], "file": "【服裝】蒂法泳裝#需要安裝服裝前置1—熙艾爾泳裝2.rar"}, {"folder": "熙艾爾美化", "name": "蝙蝠女", "kind": "服裝", "target": "熙艾爾默認服裝", "who": ["熙艾爾"], "slot": "默認服裝", "size": 3420295, "conflict": ["熙艾爾默認服裝（12 個）"], "img": null, "link": "https://drive.google.com/file/d/1h0SV5qotK1CMvXdUF-8OLd6EeZ1u-wp5/view", "dup": [], "file": "【服裝】蝙蝠女—熙艾爾默認服裝.zip"}, {"folder": "熙艾爾美化", "name": "運動裝", "kind": "服裝", "target": "熙艾爾默認改", "who": ["熙艾爾"], "slot": "默認服裝", "size": 31167779, "conflict": ["熙艾爾默認服裝（12 個）"], "img": null, "link": "https://drive.google.com/file/d/1QCK4sv4tWCuAy-63r2q9J1RAxZNk_GZv/view", "dup": [], "file": "【服裝】運動裝—熙艾爾默認改.rar"}, {"folder": "熙艾爾美化", "name": "默認服裝修改1", "kind": "服裝", "target": "熙艾爾默認", "who": ["熙艾爾"], "slot": "默認服裝", "size": 3307955, "conflict": ["熙艾爾默認服裝（12 個）"], "img": {"src": "img/pk_63.jpg", "w": 334, "h": 609}, "link": "https://drive.google.com/file/d/1VtKaoizDHJ4DLeP98Si24d4LvZRcL6mZ/view", "dup": [], "file": "【服裝】默認服裝修改1—熙艾爾默認.zip"}, {"folder": "熙艾爾美化", "name": "熙艾爾泳裝紋理分離", "kind": "服裝前置1", "target": "", "who": ["熙艾爾"], "slot": "泳裝", "size": 22548204, "conflict": [], "img": null, "link": "https://drive.google.com/file/d/1sVscxcWXBgmWkdd874eBSSo6PeLaWWj2/view", "dup": [], "file": "【服裝前置1】熙艾爾泳裝紋理分離.rar"}, {"folder": "熙艾爾美化", "name": "朱莉人物替換", "kind": "美化", "target": "熙艾爾模型替換", "who": ["熙艾爾"], "slot": "模型替換", "size": 12521654, "conflict": [], "img": {"src": "img/pk_65.jpg", "w": 900, "h": 671}, "link": "https://drive.google.com/file/d/1hXGUE4rWrRD9YuJO-57YEvVZdd0-LqJf/view", "dup": [], "file": "【美化】朱莉人物替換—熙艾爾模型替換.zip"}, {"folder": "瑪埃爾美化", "name": "2B服裝", "kind": "服裝", "target": "瑪埃爾便裝", "who": ["瑪埃爾"], "slot": "便裝", "size": 11458550, "conflict": [], "img": null, "link": "https://drive.google.com/file/d/1bereXIRTpygW2aBEgXmcEETnwsEZ2JrQ/view", "dup": [], "file": "【服裝】2B服裝—瑪埃爾便裝.7z"}, {"folder": "瑪埃爾美化", "name": "FF14阿莉塞", "kind": "服裝", "target": "瑪埃爾默認服裝", "who": ["瑪埃爾"], "slot": "默認服裝", "size": 2584788, "conflict": ["瑪埃爾默認服裝（5 個）"], "img": {"src": "img/pk_67.jpg", "w": 364, "h": 748}, "link": "https://drive.google.com/file/d/1Jtly5eXuzmX7T9tObq6V--9zGR2StgDW/view", "dup": [], "file": "【服裝】FF14阿莉塞—瑪埃爾默認服裝.rar"}, {"folder": "瑪埃爾美化", "name": "Minervamon", "kind": "服裝", "target": "瑪埃爾遠征隊服改", "who": ["瑪埃爾"], "slot": "遠征隊服", "size": 3963339, "conflict": [], "img": {"src": "img/pk_68.jpg", "w": 451, "h": 1019}, "link": "https://drive.google.com/file/d/11OuMnCLyuMOKG2od5Guu91QKUpjkFObH/view", "dup": [], "file": "【服裝】Minervamon—瑪埃爾遠征隊服改.rar"}, {"folder": "瑪埃爾美化", "name": "軍官服裝", "kind": "服裝", "target": "瑪埃爾默認服裝", "who": ["瑪埃爾"], "slot": "默認服裝", "size": 1021877, "conflict": ["瑪埃爾默認服裝（5 個）"], "img": {"src": "img/pk_69.jpg", "w": 411, "h": 712}, "link": "https://drive.google.com/file/d/13NMcH2m7hlijnffKEsiFkORlA4OrTQbq/view", "dup": [], "file": "【服裝】軍官服裝—瑪埃爾默認服裝.7z"}, {"folder": "瑪埃爾美化", "name": "影心髮型", "kind": "服裝", "target": "瑪埃爾初始髮型改", "who": ["瑪埃爾"], "slot": "髮型", "size": 44516034, "conflict": [], "img": {"src": "img/pk_70.jpg", "w": 829, "h": 763}, "link": "https://drive.google.com/file/d/1QrGlf4VGvdOs3VHxhmaCEE5ZHy37x6um/view", "dup": [{"n": 42, "title": "瑪埃爾的博德之門影心服飾MOD"}], "file": "【服裝】影心髮型—瑪埃爾初始髮型改.rar"}, {"folder": "瑪埃爾美化", "name": "服裝裁剪", "kind": "服裝", "target": "瑪埃爾花服和抹煞修改", "who": ["瑪埃爾"], "slot": "花服／抹煞", "size": 4632971, "conflict": [], "img": null, "link": "https://drive.google.com/file/d/173XpdWaVQ_-j50vIfaS0eZoxpI2NQqAm/view", "dup": [], "file": "【服裝】服裝裁剪—瑪埃爾花服和抹煞修改.rar"}, {"folder": "瑪埃爾美化", "name": "服裝裁剪改短褲", "kind": "服裝", "target": "瑪埃爾盧明服裝", "who": ["瑪埃爾"], "slot": "盧明服裝", "size": 20101765, "conflict": [], "img": {"src": "img/pk_72.jpg", "w": 393, "h": 819}, "link": "https://drive.google.com/file/d/1zz7j4dsKlgzAJQxs3gjBQWm4cGT5XAXH/view", "dup": [], "file": "【服裝】服裝裁剪改短褲—瑪埃爾盧明服裝.rar"}, {"folder": "瑪埃爾美化", "name": "火焰紋章路西法", "kind": "服裝", "target": "瑪埃爾默認服裝", "who": ["瑪埃爾"], "slot": "默認服裝", "size": 3566558, "conflict": ["瑪埃爾默認服裝（5 個）"], "img": {"src": "img/pk_73.jpg", "w": 900, "h": 469}, "link": "https://drive.google.com/file/d/1DynG5l4z0EFt0tffQwq9yG1l36py_3nV/view", "dup": [], "file": "【服裝】火焰紋章路西法—瑪埃爾默認服裝.zip"}, {"folder": "瑪埃爾美化", "name": "運動服1", "kind": "服裝", "target": "瑪埃爾默認服裝", "who": ["瑪埃爾"], "slot": "默認服裝", "size": 31112268, "conflict": ["瑪埃爾默認服裝（5 個）"], "img": {"src": "img/pk_74.jpg", "w": 343, "h": 533}, "link": "https://drive.google.com/file/d/1tr6dcjtakvyhMdAFjyZWDQqzquecGf16/view", "dup": [], "file": "【服裝】運動服1—瑪埃爾默認服裝.7z"}, {"folder": "瑪埃爾美化", "name": "艾麗西亞灰白皮膚", "kind": "美化", "target": "瑪埃爾模型替換", "who": ["瑪埃爾"], "slot": "模型替換", "size": 25420711, "conflict": [], "img": {"src": "img/pk_75.jpg", "w": 900, "h": 768}, "link": "https://drive.google.com/file/d/1aubLGkAPutyvqOTawEVgmEkYb9-x68K8/view", "dup": [], "file": "【美化】艾麗西亞灰白皮膚—瑪埃爾模型替換.rar"}, {"folder": "瑪埃爾美化", "name": "面具", "kind": "美化", "target": "瑪埃爾默認服裝", "who": ["瑪埃爾"], "slot": "默認服裝", "size": 4184, "conflict": ["瑪埃爾默認服裝（5 個）"], "img": {"src": "img/pk_76.jpg", "w": 838, "h": 832}, "link": "https://drive.google.com/file/d/1wHIptlkmSeLqkzOr7Ks3AqHjlxq-GHtx/view", "dup": [], "file": "【美化】面具—瑪埃爾默認服裝.rar"}], "saves": [{"path": "完美存檔/【外置修改器】修改器.rar", "size": 791888, "link": "https://drive.google.com/file/d/1SH-cXPXOerL0jmOhL0AVCWP-RzpDECeJ/view"}, {"path": "完美存檔/【存檔】全服裝初始存檔/EXPEDITION_0.sav", "size": 98251, "link": "https://drive.google.com/file/d/1uRXf7_hLhswYV_lsKuUMglxWbVc4g-iq/view"}, {"path": "完美存檔/【存檔】全服裝初始存檔/使用說明與替換存檔方法.txt", "size": 378, "link": "https://drive.google.com/file/d/1xPeFXOWh5-DvQg3T7ZaFA3TXRG91IzEm/view"}, {"path": "完美存檔/【存檔】完美存檔/Expedition 33 SaveGameOnly_NG33-404-1-2-1753491692.zip", "size": 9228283, "link": "https://drive.google.com/file/d/1vha6oyKn3VC4ni3RD_89uVY7ZXZLyDG9/view"}, {"path": "完美存檔/【存檔】完美存檔/fresh_start_perfect-180-1-2-1747711576.rar", "size": 17571, "link": "https://drive.google.com/file/d/11m0-t-lreudilEhUXMyfMqKA9cCv6Agv/view"}, {"path": "完美存檔/【存檔】完美存檔/使用說明與替換存檔方法.txt", "size": 378, "link": "https://drive.google.com/file/d/1z0MAmftyUGqZUhKTted7i2CAmpwtHHFH/view"}], "tools": [{"path": "實用功能/【功能】3倍升級材料掉落率.rar", "size": 14303, "link": "https://drive.google.com/file/d/1wvFkrKuI3Rb23CjKgHFLMzAABXo433yt/view"}, {"path": "實用功能/【功能】兩倍經驗獲取.rar", "size": 3273, "link": "https://drive.google.com/file/d/1WIXNH03YkP1IlPjafv1F2nFfK-qAdtn9/view"}, {"path": "實用功能/【功能】傷害上限顯示提升為99999版本.rar", "size": 47719, "link": "https://drive.google.com/file/d/1ARVGuVxBjO2jc-mmdghN7IXSUOR9Dis1/view"}, {"path": "實用功能/【功能】倒逆著色優化.zip", "size": 7210, "link": "https://drive.google.com/file/d/1S5-V30g6VwhuvHzJIClH_sF-VuBY3LEM/view"}, {"path": "實用功能/【功能】去除汙垢.rar", "size": 7684, "link": "https://drive.google.com/file/d/14bIWEiAvkaIk09dWL8V70DzovfmrltL_/view"}, {"path": "實用功能/【功能】商店售賣所有服裝和髮型(480).7z", "size": 14393, "link": "https://drive.google.com/file/d/1g0Y0sCAa-5oEBAokWWRN1t7s7VvFhCIC/view"}, {"path": "實用功能/【功能】增加怪物血量（2倍血）.rar", "size": 41311, "link": "https://drive.google.com/file/d/1An9J0VaGZJ3ltnASjeOEnGWDvFwK0mN1/view"}, {"path": "實用功能/【功能】存檔編輯器/Save Editor v2.2-225-2-2-1748563450.zip", "size": 62402416, "link": "https://drive.google.com/file/d/1XiFh2zjeZXuPelDt4hURvPZKCJE3YOmw/view"}, {"path": "實用功能/【功能】武器升級費用減半.rar", "size": 2192, "link": "https://drive.google.com/file/d/1BaczUcg3fcos58wNu83mdNUFFKpF5f6U/view"}, {"path": "實用功能/【功能】自動格擋/Cheat Engine 7.5.rar", "size": 28244262, "link": "https://drive.google.com/file/d/1GhnmNAifZMTOZfMTK1anBHq5Hwz1ZwPb/view"}, {"path": "實用功能/【功能】自動格擋/SandFallFinalFRF_V5漢化.ct", "size": 23584, "link": "https://drive.google.com/file/d/1UIUc_uBB2lxHXjnRf-9mso_Ywg1TreIk/view"}, {"path": "實用功能/【功能】自動格擋/光與影.ct", "size": 15304, "link": "https://drive.google.com/file/d/1uyfaQY-v0BNjhrKn54hy07n-nnkLfjXI/view"}, {"path": "實用功能/【功能】自動格擋/說明.txt", "size": 184, "link": "https://drive.google.com/file/d/1PG5cRwuxQtXNanBOf29i5AxqUbAwM9Pc/view"}, {"path": "實用功能/【功能】解鎖技能無需技能點.rar", "size": 9416, "link": "https://drive.google.com/file/d/1yuTQsRVtTUb8mdPzKVdrr-KnupapUqhn/view"}, {"path": "實用功能/【獨立mod】小地圖/dml v0.8.4 fix-226-v0-8-4-1749901293.zip", "size": 54070, "link": "https://drive.google.com/file/d/14C0h3VfwooBGkj7TFf-gCuZ6aUXqbCjH/view"}, {"path": "實用功能/【獨立mod】小地圖/Minimap-383-2-2-2-1757265805.zip", "size": 6297003, "link": "https://drive.google.com/file/d/1WVq8ai6g9Vv8bfVRcR5OJZIEWGzogh7i/view"}, {"path": "實用功能/【獨立mod】指南針/Compass-256-1-5-0-1752166216.zip", "size": 78953, "link": "https://drive.google.com/file/d/1BL6JpWrHsoordflqj_yEbU--RtMfHURp/view"}, {"path": "實用功能/【獨立mod】指南針/dml v0.8.4 fix-226-v0-8-4-1749901293.zip", "size": 54070, "link": "https://drive.google.com/file/d/1XFlWsXxMkBE-x8sf3-fg2puuoPfAOaVZ/view"}], "trainer": [{"path": "修改器/修改器.rar", "size": 791888, "link": "https://drive.google.com/file/d/1VU0T_05gSubtI3zEEGAG_9huiPvlqkMQ/view"}], "init": [{"path": "初始化/33號拓展.zip", "size": 55039, "link": "https://drive.google.com/file/d/1s1wpN_atL1NuzIGUhH8CH24ocnEmePsX/view"}, {"path": "初始化/Vortex-1-1-13-7-1737460629.exe", "size": 170631744, "link": "https://drive.google.com/file/d/1J5ti9svFqM3V0aGgUL-qZ7Bvg6nU60C3/view"}, {"path": "初始化/windowsdesktop-runtime-NET6.0.25-win-x64.exe", "size": 57436096, "link": "https://drive.google.com/file/d/1LO7wkuaNlOH62jXauxpgzjfJ142FMu-y/view"}, {"path": "初始化/中文漢化補丁/手動安裝教程.txt", "size": 575, "link": "https://drive.google.com/file/d/1TSmByOjN45U3oFJrfIShReKvvyw6gOd6/view"}, {"path": "初始化/中文漢化補丁/漢化安裝腳本.bat", "size": 2456, "link": "https://drive.google.com/file/d/1wLWtNPNEY75sIqwdXaIgDCt8185UxC9k/view"}], "perf": [{"path": "性能優化/【優化】提升幀率優化視覺表現.zip", "size": 24598, "link": "https://drive.google.com/file/d/1WJxm6LxkKkiF9PbyRtMj4mgNJIXv8B5l/view"}], "root": "https://drive.google.com/drive/folders/1mA7_lRrdsWNYA2NnX6BZfyk4E5uGfUBp", "missing": 0};
+const P2_NOTE = {
+  init: { 'Vortex': 'Nexus 官方的 MOD 管理器。建議改從官網下載：nexusmods.com/about/vortex', 'windowsdesktop-runtime': '微軟 .NET 6 執行環境。建議改從微軟官網下載', '漢化安裝腳本': '已讀過全文：只把中文化檔複製到 Vortex 資料夾，不會動其他東西', '33號拓展': 'Vortex 的 33 號遠征隊遊戲擴充' },
+  tools: { 'Cheat Engine': '作弊工具，安裝程式常夾帶廣告軟體。要用請到官網 cheatengine.org 下載', '.ct': 'Cheat Engine 腳本，要搭配 Cheat Engine 使用', '存檔編輯器': '可直接改存檔數值，改之前先備份', 'dml': '小地圖、指南針共用的前置檔，兩個都裝只要放一份' },
+  trainer: { '修改器': '內容未解壓確認，風險最高' },
+  saves: { '全服裝初始存檔': '開局就有所有服裝，放成 EXPEDITION_0.sav', 'SaveGameOnly': 'Nexus Mods 上的完美存檔', 'fresh_start': 'Nexus Mods 上的完美開局存檔' },
+};
+/* 存檔與工具的說明與教學：依檔名關鍵字對應，內容依 2026-10-25 實際列出的壓縮檔內容撰寫 */
+const MODS_DIR = '\\Steam\\steamapps\\common\\Expedition 33\\Sandfall\\Content\\Paks\\~mods';
+const SAVE_DIR = '%LOCALAPPDATA%\\Sandfall\\Saved\\SaveGames\\（一串數字的資料夾）';
+const PAK_LOOSE = [
+  '解壓縮，會得到同名的 .pak、.ucas、.utoc 三個檔案。',
+  `把三個檔案一起複製到 ${MODS_DIR}，沒有 ~mods 資料夾就自己建一個。`,
+  '啟動遊戲。',
+];
+const PAK_TREE = [
+  '解壓縮，裡面是一個 Sandfall 資料夾（已經照遊戲的資料夾結構排好）。',
+  '把 Sandfall 資料夾複製到遊戲根目錄 \\Steam\\steamapps\\common\\Expedition 33\\，詢問要不要合併資料夾時選「是」。',
+  `完成後，檔案會在 ${MODS_DIR} 裡。`,
+  '啟動遊戲。',
+];
+const PAK_REMOVE = '移除：到 ~mods 資料夾把這組 .pak、.ucas、.utoc 三個檔案刪掉。';
+const SAVE_PREP = [
+  '完全關閉遊戲。',
+  'Steam 收藏庫 → 遊戲按右鍵 → 內容 → 一般，關掉「將存檔保留在 Steam 雲端中」。',
+  `按 Win + R，輸入 %LOCALAPPDATA%\\Sandfall\\Saved\\SaveGames，進入一串數字的資料夾。`,
+  '把整個數字資料夾複製一份到桌面當備份。',
+];
+const SAVE_AFTER = '確認讀檔正常、在遊戲裡存過一次之後，再把 Steam 雲端同步打開；跳出雲端衝突時選「本機」的檔案。';
+
+const GUIDES = [
+  { k: ['全服裝初始存檔'], about: '開局就擁有全部服裝的存檔，檔名是 EXPEDITION_0.sav（存檔第一格）。適合想直接換裝、不想重新收集的人。',
+    steps: [...SAVE_PREP, '想放在第一格：直接用它取代 EXPEDITION_0.sav。想保留原本第一格：把它改名成空的那一格，例如 EXPEDITION_1.sav 再放進去。', '開遊戲讀取那一格。'],
+    notes: ['會蓋掉那一格原本的進度，一定要先備份。', SAVE_AFTER] },
+  { k: ['SaveGameOnly'], about: 'Nexus Mods 上的「NG33」完美存檔（編號 404）。壓縮檔裡是作者整個存檔資料夾，包含他的 Steam ID 資料夾、設定檔和 Backup。',
+    steps: [...SAVE_PREP, '解壓縮，打開那個一串數字的資料夾（那是作者的 Steam ID，不是你的）。', '只拿裡面的 EXPEDITION_0.sav，不要把整個資料夾或其他 .sav 複製過去。', '把它改名成你要取代的那一格（例如 EXPEDITION_1.sav），放進你自己的數字資料夾。', '開遊戲讀取那一格。'],
+    notes: ['SavesContainer.sav、PlatformSaveData.sav 和設定檔都不要拿，會蓋掉你自己的存檔清單和按鍵設定。', SAVE_AFTER] },
+  { k: ['fresh_start'], about: 'Nexus Mods 上的完美開局存檔（編號 180），壓縮檔裡只有一個 EXPEDITION_1.sav（存檔第二格）。',
+    steps: [...SAVE_PREP, '解壓縮得到 EXPEDITION_1.sav。', '要放在第二格就直接取代；要放別格就改成對應的檔名。', '開遊戲讀取那一格。'],
+    notes: [SAVE_AFTER] },
+  { k: ['100%完美存檔'], about: '賣家雲端 2026 更新裡的完美存檔（78 KB），內容沒有解壓確認。',
+    steps: [...SAVE_PREP, '解壓縮，找到裡面的 .sav 檔。', '改名成你要取代的那一格（例如 EXPEDITION_1.sav），放進數字資料夾。', '開遊戲讀取那一格。'],
+    notes: [SAVE_AFTER] },
+  { k: ['使用說明與替換存檔方法'], about: '整合包附的存檔說明：關閉 Steam 雲端、到 %localappdata%\\Sandfall\\Saved 找存檔資料夾、把 EXPEDITION_0.sav 放進去。內容跟上面存檔項目的教學相同，這裡寫得更完整。', steps: [], notes: [] },
+
+  { k: ['升級材料'], about: '所有敵人掉落的升級材料變 3 倍（說明檔寫的是「翻倍」，資料夾名稱是 3 倍）。', steps: PAK_TREE, notes: [PAK_REMOVE] },
+  { k: ['兩倍經驗'], about: '升級需要的經驗值減半，等於經驗兩倍。經驗曲線不是線性的，後期效果有限；已經獲得的經驗不會重算。', steps: PAK_TREE, notes: [PAK_REMOVE] },
+  { k: ['傷害上限顯示'], about: '把傷害上限提高到 99999 的版本，壓縮檔內的檔名是 LowerDamageCap_P。', steps: PAK_TREE, notes: ['跟「傷害上限 999999」只能二選一。', PAK_REMOVE] },
+  { k: ['傷害上限999999'], about: '把傷害上限提高到 999999（賣家 2026 更新版本），內容沒有解壓確認。', steps: PAK_LOOSE, notes: ['跟「傷害上限 99999」只能二選一。', PAK_REMOVE] },
+  { k: ['倒逆著色'], about: '移除「倒逆」狀態的反色畫面效果（InvertedColorEffectBegoneMod），畫面不再變成負片色。', steps: PAK_LOOSE, notes: [PAK_REMOVE] },
+  { k: ['去除汙垢', '去除污垢'], about: '移除角色身上的髒污貼圖（z_BTS_P）。有些服裝 MOD 已經自帶去污垢，重複裝通常沒影響。', steps: PAK_LOOSE, notes: [PAK_REMOVE] },
+  { k: ['商店售賣所有服裝'], about: '讓商人販售所有服裝和髮型（UltimateMerchantsOW），不用全部收集也能用買的。', steps: PAK_LOOSE, notes: ['跟「商店出售所有物品」功能重疊，建議只裝一個。', PAK_REMOVE] },
+  { k: ['商店出售所有物品'], about: '讓商店販售所有物品（賣家 2026 更新版本），內容沒有解壓確認。', steps: PAK_LOOSE, notes: ['跟「商店售賣所有服裝和髮型」功能重疊，建議只裝一個。', PAK_REMOVE] },
+  { k: ['怪物血量'], about: '所有敵人血量變 2 倍，讓遊戲變難。', steps: PAK_TREE, notes: [PAK_REMOVE] },
+  { k: ['武器升級費用'], about: '武器升級需要的材料減半。', steps: PAK_TREE, notes: [PAK_REMOVE] },
+  { k: ['解鎖技能無需技能點'], about: '學技能不用消耗技能點。', steps: PAK_TREE, notes: [PAK_REMOVE] },
+  { k: ['閃避和格擋'], about: '把閃避和格擋的判定時間拉長（2 倍、3 倍、5 倍三種版本），內容沒有解壓確認。', steps: PAK_LOOSE, notes: ['三個版本只能選一個裝，數字越大越簡單。', PAK_REMOVE] },
+  { k: ['自動qte'], about: '把 QTE 自動改成完美判定，內容沒有解壓確認。', steps: PAK_LOOSE, notes: [PAK_REMOVE] },
+  { k: ['過場動畫'], about: '解除過場動畫 30 幀的限制，內容沒有解壓確認。', steps: PAK_LOOSE, notes: [PAK_REMOVE] },
+  { k: ['增加技能描述'], about: '在技能說明裡加上更詳細的數值，內容沒有解壓確認。', steps: PAK_LOOSE, notes: [PAK_REMOVE] },
+
+  { k: ['Minimap', '小地圖.zip'], about: '在畫面上加入小地圖（Nexus Mods 編號 383）。這個 MOD 需要前置的 dml 才能運作。',
+    steps: ['先裝 dml：把 dml 壓縮檔裡的 dml 資料夾整個複製到 ~mods。', `再把 Minimap 壓縮檔裡的 MinimapFx.pak、.ucas、.utoc 三個檔案放進 ${MODS_DIR}。`, '啟動遊戲。'],
+    notes: ['如果沒有出現，到 Nexus Mods 搜尋 Minimap（33 號遠征隊），看作者寫的最新安裝位置。', '小地圖和指南針共用同一個 dml，只要裝一份。'] },
+  { k: ['Compass', '指南針.zip'], about: '在畫面上加入指南針（Nexus Mods 編號 256）。一樣需要前置的 dml。',
+    steps: ['先裝 dml：把 dml 資料夾整個複製到 ~mods（裝過小地圖就不用再放）。', `把 Compass.pak、.ucas、.utoc 三個檔案放進 ${MODS_DIR}。`, '啟動遊戲。'],
+    notes: ['如果沒有出現，到 Nexus Mods 搜尋 Compass（33 號遠征隊），看作者寫的最新安裝位置。'] },
+  { k: ['dml'], about: '小地圖、指南針需要的前置程式庫（Nexus Mods 編號 226，v0.8.4 fix）。單獨裝沒有效果。',
+    steps: ['解壓縮得到一個 dml 資料夾，裡面有 dml_P、dml_core_P、dml_core2_P 等檔案。', '把整個 dml 資料夾複製到 ~mods。'],
+    notes: ['小地圖和指南針資料夾各附了一份 dml，內容相同，只要放一份。'] },
+
+  { k: ['存檔編輯器'], about: 'COE33 Save Editor v2.2（Nexus Mods 編號 225），可以直接改存檔裡的數值，例如金錢、道具、等級。是 Windows 程式（.exe）。',
+    steps: ['先照存檔教學把整個存檔資料夾備份到桌面。', '解壓縮到一個路徑全英文的資料夾，例如 C:\\Tools\\SaveEditor。', '完全關閉遊戲。', '執行 COE33 Save Editor.exe，載入你的 EXPEDITION_數字.sav。', '修改想改的數值，存檔後關閉編輯器。', '開遊戲讀取那一格確認。'],
+    notes: ['改壞存檔可能讀不進去，所以備份一定要做。', '這是執行檔，建議改到 Nexus Mods 官方頁面下載，並先用 Windows Defender 掃描。', '編輯器的實際操作畫面我沒有開過，按鈕名稱以程式內為準。'] },
+  { k: ['Cheat Engine'], about: 'Cheat Engine 7.5，整合包用它來執行「自動格擋」腳本（.ct 檔）。它是記憶體修改工具，不是一般 MOD。',
+    steps: ['到官網 cheatengine.org 下載安裝，不建議用整合包裡這份。官方安裝程式會詢問是否安裝附帶軟體，記得全部選「拒絕」。', '把 .ct 腳本放在路徑全英文的資料夾（整合包說明檔特別提醒，中文路徑可能報錯）。', '先啟動遊戲。', '開 Cheat Engine，按左上角電腦圖示，選遊戲的程序。', '檔案 → 開啟，選 .ct 檔，在下方清單勾選要啟用的功能。'],
+    notes: ['只能在單機使用。', '遊戲更新後腳本可能失效。'] },
+  { k: ['.ct'], about: 'Cheat Engine 的腳本檔，整合包裡有兩個：SandFallFinalFRF_V5（中文化版）和「光與影」。要用其中一個開啟。',
+    steps: ['先照 Cheat Engine 的教學安裝並開好遊戲。', '把這個 .ct 放到路徑全英文的資料夾。', 'Cheat Engine 裡按 檔案 → 開啟 選這個檔案，勾選要用的功能（例如自動格擋）。'],
+    notes: ['兩個 .ct 擇一使用。'] },
+  { k: ['說明.txt'], about: '整合包附的說明：使用 Cheat Engine 時路徑要改成英文，中文名稱可能會報錯。其餘是賣家的聯絡資訊。', steps: [], notes: [] },
+
+  { k: ['提升幀率'], about: 'The Definitive Performance Mod v1.5.4（作者 ru-bem）。用改設定檔的方式提升幀率、優化畫面，不是放進 ~mods 的 MOD。共有 8 種預設：Lossless、Quality、Balanced、Performance、Potato、Monstrosity，以及兩種 Steam Deck 用的。',
+    steps: ['解壓縮，依顯示卡挑一個預設資料夾：RTX 4070 以上用 1_Lossless；RTX 3060、2060 用 2_Quality；RTX 3050 用 3_Balanced；GTX 1050 用 4_Performance；GT 1030 用 5_Potato。', '複製那個資料夾裡的 Engine.ini 和 Scalability.ini。', '按 Win + R，輸入 %LocalAppData%\\Sandfall\\Saved\\Config，打開裡面的 Windows（或 WinGDK）資料夾，把檔案貼上。', '開遊戲，到畫面設定：高階卡選「高」預設，GTX 1050 等級選「中」，GT 1030 選「低」。升頻方式優先選 DLSS，其次 XeSS，最後 TSR。'],
+    notes: ['壓縮檔裡也有自動安裝的 .bat，我沒有讀過內容，建議照上面手動安裝。', '移除：把貼上的 Engine.ini、Scalability.ini 刪掉，遊戲會用回預設值。'] },
+
+  { k: ['Vortex'], about: 'Vortex 是 Nexus Mods 官方的 MOD 管理器，可以一鍵安裝、停用 MOD。整合包附的是 1.13.7 的安裝檔。',
+    steps: ['建議到 nexusmods.com/about/vortex 下載最新版安裝，不要用整合包這份。', '安裝後登入 Nexus 帳號，選擇遊戲《Clair Obscur: Expedition 33》。', '要中文介面的話，再照「漢化安裝腳本」的教學安裝中文化。'],
+    notes: ['只想手動放 MOD 的話不需要 Vortex。'] },
+  { k: ['windowsdesktop-runtime'], about: '微軟 .NET 6 桌面執行環境，部分工具（例如 Vortex 舊版）需要它。',
+    steps: ['到微軟官網 dotnet.microsoft.com 搜尋 .NET 6 Desktop Runtime 下載安裝。', '照安裝程式指示按下一步即可。'],
+    notes: ['如果工具開啟時沒有提示缺少 .NET，就不用裝。'] },
+  { k: ['33號拓展'], about: 'Vortex 的 33 號遠征隊遊戲擴充（0.1.3 版），讓舊版 Vortex 認得這款遊戲。壓縮檔裡是 index.js、info.json 等擴充檔案。',
+    steps: ['新版 Vortex 已經能直接選這款遊戲的話，就不用裝。', '需要時：解壓縮成一個資料夾，放進 %APPDATA%\\Vortex\\plugins\\（沒有 plugins 就自己建）。', '重新開啟 Vortex。'],
+    notes: ['擴充的放置位置是 Vortex 的通用做法，實際以 Vortex 版本為準。'] },
+  { k: ['漢化安裝腳本'], about: 'Vortex 中文化的安裝腳本（作者 liuyanxi，GitHub 專案 Chinese-Translation-for-Vortex）。我讀過全文：它只做一件事，把 zh 資料夾複製到 %APPDATA%\\Vortex\\locales\\zh；如果 Vortex 正在執行，會先把它關掉。',
+    steps: ['先安裝並開過一次 Vortex。', '確認 zh 資料夾跟這個 .bat 放在同一個資料夾裡。', '雙擊執行 .bat，照畫面按任意鍵。', '打開 Vortex：SETTINGS → INTERFACE → LANGUAGE，選中文。'],
+    notes: ['腳本失敗的話，照「手動安裝教程」把 zh 資料夾自己放進 locales。'] },
+  { k: ['手動安裝教程'], about: 'Vortex 中文化的手動安裝方法。',
+    steps: ['按 Win + R，輸入 %appdata%\\vortex。', '建一個 locales 資料夾（已經有就不用）。', '把 zh 資料夾放進 locales。', '打開 Vortex：SETTINGS → INTERFACE → LANGUAGE，選中文。'], notes: [] },
+
+  { k: ['修改器最新版'], about: '賣家雲端 2026 更新裡的修改器，內容沒有解壓確認。名稱跟整合包裡的「外置修改器」相似，可能是同一個工具的新版本。',
+    steps: ['下載後先用 Windows Defender 掃描（在檔案上按右鍵 →「使用 Microsoft Defender 掃描」）。', '解壓縮，裡面若是 .exe 修改器：先開遊戲讀檔，再執行修改器，用視窗上顯示的快捷鍵開關功能。'],
+    notes: ['來源不明的執行檔風險最高，不用的話建議不要下載。'] },
+  { k: ['修改器'], about: '外置修改器「Clair Obscur Expedition 33 v1.0 Plus 33 Trainer」（2025-05-01 版本），是一個 .exe 執行檔，用快捷鍵開關無敵、無限資源等功能。我沒有執行過它，無法確認來源與安全性。',
+    steps: ['執行前先用 Windows Defender 掃描（在檔案上按右鍵 →「使用 Microsoft Defender 掃描」）。', '先啟動遊戲並讀檔。', '執行修改器（可能需要「以系統管理員身分執行」），視窗會顯示每個功能的快捷鍵。', '在遊戲中按快捷鍵開關功能。'],
+    notes: ['這是 2025 年 5 月的版本，遊戲更新後可能失效或導致當機。', '來源不明的修改器是整包裡風險最高的檔案；不用的話建議直接刪掉。'] },
+
+  { k: ['整合包2.11'], about: '賣家雲端上的整合包本體（1.81 GB）。已經下載、解壓並上傳到你的雲端，內容就是這個網頁「服裝 MOD」分頁裡的整合包項目和這個分頁上方的存檔與工具。', steps: [], notes: [] },
+  { k: ['Gloss管理器'], about: 'Gloss Mod Manager，中文圈常用的 MOD 管理器，可以把 MOD 拖進去一鍵啟用。',
+    steps: ['建議到 Gloss Mod Manager 官網下載，不要用整合包重新打包的版本。', '開啟後在遊戲清單選《光與影：33 號遠征隊》。', '把 MOD 壓縮檔拖進管理器，勾選啟用，再啟動遊戲。'], notes: [] },
+  { k: ['有問題聯繫客服'], about: '賣家的客服說明檔，雲端預覽是空白的，沒有實際內容。', steps: [], notes: [] },
+];
+const guideFor = name => GUIDES.find(g => g.k.some(k => name.includes(k)));
+
+const fmtSize = b => b >= 1e9 ? (b / 1e9).toFixed(2) + ' GB' : b >= 1e6 ? (b / 1e6).toFixed(1) + ' MB' : Math.max(1, Math.round(b / 1e3)) + ' KB';
+const noteFor = (cat, path) => Object.entries(P2_NOTE[cat] || {}).filter(([k]) => path.includes(k)).map(([, v]) => v);
+const ICON = {
+  back: '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 5l-7 7 7 7"/></svg>',
+  x: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+  link: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10 14a4 4 0 0 0 5.7 0l3-3a4 4 0 0 0-5.7-5.7l-1 1"/><path d="M14 10a4 4 0 0 0-5.7 0l-3 3a4 4 0 0 0 5.7 5.7l1-1"/></svg>',
+  dl: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 4v11M7 10l5 5 5-5M5 20h14"/></svg>',
+  user: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="8" r="4"/><path d="M4.5 20a7.5 7.5 0 0 1 15 0"/></svg>',
+  shirt: '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M8 4l4 2 4-2 4 4-3 3v9H7v-9L4 8z"/></svg>',
+  check: '<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12.5l4.5 4.5L19 7"/></svg>'
+};
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const $ = id => document.getElementById(id);
+
+let state = { src: '全部', who: '全部', view: 'mods', toolCat: '全部' };
+try { const s = JSON.parse(localStorage.getItem('33mod-filter') || 'null'); if (s) state = Object.assign(state, s); } catch (e) {}
+const save = () => { try { localStorage.setItem('33mod-filter', JSON.stringify(state)); } catch (e) {} };
+
+/* 3DM、整合包、賣家 2026 更新的服裝合成一份清單，依角色分類 */
+const CHARS = ['呂涅', '熙艾爾', '瑪埃爾', '古斯塔夫', '維爾索', '全隊', 'NPC', '其他'];
+const SLOTS = [['泳裝1', '泳裝1'], ['泳裝2', '泳裝2'], ['泳裝', '泳裝'], ['塞壬', '塞壬套裝'], ['遠征隊', '遠征隊服'], ['半身裙', '平民裙裝'], ['平民', '平民服裝'], ['克萊雅', '克萊雅服裝'], ['便裝', '便裝'], ['盧明', '盧明服裝'], ['花服', '花服'], ['法棍', '法棍服裝'], ['土豆', '土豆偶服裝'], ['盧米埃爾', '盧米埃爾套裝'], ['髮型', '髮型'], ['臉型', '臉型'], ['模型', '模型替換'], ['人物替換', '模型替換'], ['默認', '默認服裝'], ['預設', '默認服裝'], ['初始', '默認服裝']];
+const SLOT_ORDER = ['默認服裝', '遠征隊服', '平民服裝', '平民裙裝', '克萊雅服裝', '便裝', '盧明服裝', '花服', '花服／抹煞', '法棍服裝', '土豆偶服裝', '盧米埃爾套裝', '塞壬套裝', '泳裝', '泳裝1', '泳裝2', '泳裝1/2', '髮型', '臉型', '臉部', '模型替換', '全部', '指甲', '未標示'];
+const slotOf = t => (SLOTS.find(([k]) => t.includes(k)) || [, '未標示'])[1];
+const SELLER = PACK.filter(g => /服裝/.test(g.name)).flatMap(g => g.items.map(it => ({ ...it, link: g.link })));
+const ALL = [
+  ...MODS.map(m => ({ key: String(m.n), src: '3DM', title: m.title, who: [m.who], slot: slotOf(m.note), thumb: m.imgs[0] && m.imgs[0].src, size: '', open: () => openMod(m.n) })),
+  ...P2.costumes.map((c, i) => ({ key: 'p' + i, src: '整合包', title: c.name, who: c.who, slot: c.slot, thumb: c.img && c.img.src, size: fmtSize(c.size), open: () => openP2(i) })),
+  ...SELLER.map((s, i) => { const who = CHARS.filter(w => s.n.includes(w) || s.tag === w); return { key: 's' + i, src: '2026更新', title: s.n.replace(/^【服裝】/, '').replace(/\.7z$/, ''), who: who.length ? who : ['其他'], slot: slotOf(s.n), thumb: s.img, size: s.size, open: () => openSeller(i) }; }),
+];
+const SLOTCOUNT = {};
+ALL.forEach(a => a.who.forEach(w => { if (a.slot !== '未標示') SLOTCOUNT[w + a.slot] = (SLOTCOUNT[w + a.slot] || 0) + 1; }));
+const sameSlot = a => Math.max(0, ...a.who.map(w => (SLOTCOUNT[w + a.slot] || 1) - 1));
+const SOURCES = ['全部', '3DM', '整合包', '2026更新'];
+const matchWho = (a, w) => w === '全部' || a.who.includes(w) || (a.who.includes('全隊') && !['全隊', 'NPC', '其他'].includes(w));
+
+function itemHTML(a) {
+  const thumb = a.thumb ? `<img src="${a.thumb}" alt="" loading="lazy">` : '<img alt="">';
+  return `<button class="item" data-key="${a.key}">${thumb}<span class="txt"><b>${esc(a.title)}</b><i><span class="tag">${esc(a.src)}</span>${esc(a.who.join('、'))} · ${esc(a.slot)}</i></span><span class="no">${esc(a.size)}</span></button>`;
+}
+function openSeller(i) {
+  const s = SELLER[i];
+  openSheet(`
+    <div class="label">賣家雲端 · 2026 更新</div>
+    <h3>${esc(s.n)}</h3>
+    ${s.img ? `<div class="shots"><img src="${s.img}" alt="${esc(s.n)} 預覽圖"></div>` : ''}
+    <div class="rows">
+      <div class="row"><span class="ic">${ICON.user}</span><span class="v"><span>${esc(s.tag)}</span><span class="label">角色</span></span></div>
+      <div class="row"><span class="ic">${ICON.dl}</span><span class="v"><span><a href="${s.link}" target="_blank" rel="noopener">在賣家雲端開啟</a></span><span class="label">${esc(s.size)}</span></span></div>
+    </div>
+    ${s.warn ? `<p class="desc"><b class="warnb">注意：</b>${esc(s.warn)}</p>` : ''}
+  `, { close: 'back' });
+}
+
+const PACK_ICON = '<svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M4 8l8-4 8 4v8l-8 4-8-4z"/><path d="M4 8l8 4 8-4M12 12v8"/></svg>';
+function p2Item(c, i) {
+  const thumb = c.img ? `<img src="${c.img.src}" alt="" loading="lazy">` : '<img alt="">';
+  const flags = [c.conflict.length ? '會衝突' : '', c.dup.length ? '3DM 有類似' : '', c.link ? '' : '上傳中'].filter(Boolean).join(' · ');
+  return `<button class="item" data-p2="${i}">${thumb}<span class="txt"><b>${esc(c.name)}</b><i>${esc(c.who.join('、'))} · ${esc(c.slot)}${flags ? ' · ' + flags : ''}</i></span><span class="no">${fmtSize(c.size)}</span></button>`;
+}
+function openP2(i) {
+  const c = P2.costumes[i];
+  openSheet(`
+    <div class="label">${esc(c.folder)} · ${esc(c.kind)}</div>
+    <h3>${esc(c.name)}</h3>
+    ${c.img ? `<div class="shots"><img src="${c.img.src}" width="${c.img.w}" height="${c.img.h}" alt="${esc(c.name)} 預覽圖"></div>` : ''}
+    <div class="rows">
+      <div class="row"><span class="ic">${ICON.user}</span><span class="v"><span>${esc(c.who.join('、'))}</span><span class="label">角色</span></span></div>
+      <div class="row"><span class="ic">${ICON.shirt}</span><span class="v"><span>${esc(c.target || '未標示')}</span><span class="label">替換的服裝（檔名寫的）</span></span></div>
+      <div class="row"><span class="ic">${ICON.dl}</span><span class="v"><span>${c.link ? `<a href="${c.link}" target="_blank" rel="noopener">${esc(c.file)}</a>` : esc(c.file) + '（上傳中）'}</span><span class="label">${fmtSize(c.size)} · 你的雲端</span></span></div>
+    </div>
+    ${c.conflict.length ? `<p class="desc"><b class="warnb">注意：</b>整合包裡還有其他 MOD 也換${esc(c.conflict.join('、'))}，同一件只能留一個。</p>` : ''}
+    ${c.dup.length ? `<div class="label">3DM 上類似的免費 MOD</div><div class="rows">${c.dup.map(d => `<button class="row dupbtn" data-n="${d.n}"><span class="ic">${ICON.link}</span><span class="v"><span>${esc(d.title)}</span><span class="label">服裝 MOD 編號 ${d.n}</span></span></button>`).join('')}</div>` : ''}
+  `, { close: 'back' });
+}
+/* 存檔與工具：依用途分類，同一個工具的多個來源合併成一項 */
+const TOOL_CATS = ['存檔', '遊戲調整', '商店', '介面與畫面', 'MOD 管理器', '作弊與修改器', '其他'];
+const TOOL_DEFS = [
+  { cat: '存檔', title: '全服裝初始存檔', gk: '全服裝初始存檔', m: ['全服裝初始存檔'], flag: '開局全服裝' },
+  { cat: '存檔', title: 'NG33 完美存檔', gk: 'SaveGameOnly', m: ['SaveGameOnly'], flag: 'Nexus 404' },
+  { cat: '存檔', title: '完美開局存檔', gk: 'fresh_start', m: ['fresh_start'], flag: 'Nexus 180' },
+  { cat: '存檔', title: '100% 完美存檔 2026', gk: '100%完美存檔', m: ['100%完美存檔'] },
+  { cat: '存檔', title: '存檔編輯器 COE33 Save Editor', gk: '存檔編輯器', m: ['Save Editor'], flag: '執行檔' },
+
+  { cat: '遊戲調整', title: '經驗值兩倍', gk: '兩倍經驗', m: ['兩倍經驗'] },
+  { cat: '遊戲調整', title: '升級材料掉落 3 倍', gk: '升級材料', m: ['升級材料'] },
+  { cat: '遊戲調整', title: '武器升級費用減半', gk: '武器升級費用', m: ['武器升級費用'] },
+  { cat: '遊戲調整', title: '學技能不用技能點', gk: '解鎖技能無需技能點', m: ['解鎖技能無需技能點'] },
+  { cat: '遊戲調整', title: '閃避與格擋判定放寬', gk: '閃避和格擋', m: ['閃避和格擋'], flag: '2／3／5 倍擇一' },
+  { cat: '遊戲調整', title: 'QTE 自動完美', gk: '自動qte', m: ['自動qte'] },
+  { cat: '遊戲調整', title: '傷害上限 99999', gk: '傷害上限顯示', m: ['傷害上限顯示'], flag: '跟 999999 擇一' },
+  { cat: '遊戲調整', title: '傷害上限 999999', gk: '傷害上限999999', m: ['傷害上限999999'], flag: '跟 99999 擇一' },
+  { cat: '遊戲調整', title: '怪物血量 2 倍', gk: '怪物血量', m: ['怪物血量'], flag: '變難' },
+
+  { cat: '商店', title: '商店販售所有服裝與髮型', gk: '商店售賣所有服裝', m: ['商店售賣所有服裝'], flag: '跟下一項擇一' },
+  { cat: '商店', title: '商店販售所有物品', gk: '商店出售所有物品', m: ['商店出售所有物品'], flag: '跟上一項擇一' },
+
+  { cat: '介面與畫面', title: 'dml 前置程式庫', gk: 'dml', m: ['dml'], flag: '小地圖、指南針需要' },
+  { cat: '介面與畫面', title: '小地圖', gk: 'Minimap', m: ['Minimap', '小地圖'], flag: '需要 dml' },
+  { cat: '介面與畫面', title: '指南針', gk: 'Compass', m: ['Compass', '指南針'], flag: '需要 dml' },
+  { cat: '介面與畫面', title: '技能描述加上數值', gk: '增加技能描述', m: ['增加技能描述'] },
+  { cat: '介面與畫面', title: '移除倒逆反色效果', gk: '倒逆著色', m: ['倒逆著色'] },
+  { cat: '介面與畫面', title: '去除角色髒污', gk: '去除汙垢', m: ['去除汙垢', '去除污垢'] },
+  { cat: '介面與畫面', title: '過場動畫解除 30 幀', gk: '過場動畫', m: ['過場動畫'] },
+  { cat: '介面與畫面', title: '效能優化設定檔', gk: '提升幀率', m: ['提升幀率'], flag: '依顯示卡選預設' },
+
+  { cat: 'MOD 管理器', title: 'Vortex 管理器', gk: 'Vortex', m: ['Vortex'], flag: '建議官網下載' },
+  { cat: 'MOD 管理器', title: 'Vortex 中文化', gk: '漢化安裝腳本', m: ['漢化安裝腳本'] },
+  { cat: 'MOD 管理器', title: 'Vortex 遊戲擴充', gk: '33號拓展', m: ['33號拓展'] },
+  { cat: 'MOD 管理器', title: '.NET 6 執行環境', gk: 'windowsdesktop-runtime', m: ['windowsdesktop-runtime'], flag: '建議官網下載' },
+  { cat: 'MOD 管理器', title: 'Gloss 管理器', gk: 'Gloss管理器', m: ['Gloss管理器'] },
+
+  { cat: '作弊與修改器', title: 'Cheat Engine 7.5', gk: 'Cheat Engine', m: ['Cheat Engine'], flag: '建議官網下載' },
+  { cat: '作弊與修改器', title: '自動格擋腳本', gk: '.ct', m: ['.ct'], flag: '搭配 Cheat Engine' },
+  { cat: '作弊與修改器', title: '外置修改器 Plus 33', gk: '修改器', m: ['外置修改器', '修改器.rar'], flag: '高風險' },
+  { cat: '作弊與修改器', title: '修改器最新版', gk: '修改器最新版', m: ['修改器最新版'], flag: '高風險' },
+
+  { cat: '其他', title: '整合包本體 2.11', gk: '整合包2.11', m: ['整合包2.11'] },
+];
+/* 說明檔的內容已寫進對應工具的教學，不另外列出 */
+const TOOL_HIDE = ['使用說明與替換存檔方法', '手動安裝教程', '說明.txt', '有問題聯繫客服'];
+const TOOL_EXTRA = {
+  '全服裝初始存檔': '整合包附的「使用說明與替換存檔方法」內容已整合在這份教學裡。',
+  'NG33 完美存檔': '整合包附的「使用說明與替換存檔方法」內容已整合在這份教學裡。',
+  '完美開局存檔': '整合包附的「使用說明與替換存檔方法」內容已整合在這份教學裡。',
+  '自動格擋腳本': '整合包附的說明檔提醒：Cheat Engine 和腳本的路徑要改成英文，中文路徑可能會報錯。',
+  'Vortex 中文化': '腳本失敗時的手動方法：按 Win + R 輸入 %appdata%\\vortex，建立 locales 資料夾，把 zh 資料夾放進去，再到 Vortex 的 SETTINGS → INTERFACE → LANGUAGE 選中文。',
+};
+
+/* 收集所有來源檔案，對應到工具項目 */
+const TOOLS = TOOL_DEFS.map(d => ({ ...d, sources: [] }));
+(() => {
+  const raw = [];
+  ['saves', 'tools', 'trainer', 'init', 'perf'].forEach(cat => P2[cat].forEach(r => raw.push({ name: r.path.split('/').pop(), path: r.path, size: fmtSize(r.size), link: r.link, from: '整合包' })));
+  PACK.filter(g => !/服裝/.test(g.name)).forEach(g => g.items.forEach(it => raw.push({ name: it.n, path: g.path, size: it.size, link: g.link, from: '賣家 2026 更新' })));
+  raw.forEach(r => {
+    if (TOOL_HIDE.some(h => r.name.includes(h))) return;
+    const t = TOOLS.find(d => d.m.some(p => r.name.includes(p))) || TOOLS.find(d => d.m.some(p => r.path.includes(p)));
+    if (t) t.sources.push(r); else TOOLS.push({ cat: '其他', title: r.name, gk: r.name, m: [], sources: [r] });
+  });
+})();
+const toolGuide = t => GUIDES.find(g => g.k.includes(t.gk)) || guideFor(t.gk) || { about: '這個檔案沒有額外說明。', steps: [], notes: [] };
+function toolHTML(t) {
+  const i = TOOLS.indexOf(t);
+  const from = [...new Set(t.sources.map(s => s.from))].join('、');
+  const size = t.sources.length > 1 ? `${t.sources.length} 個檔案` : (t.sources[0] ? t.sources[0].size : '');
+  const risky = t.cat === '作弊與修改器';
+  return `<button class="pk" data-tool="${i}"><span class="ic">${PACK_ICON}</span><span class="txt"><b>${esc(t.title)}</b><i>${t.flag ? `<span class="tag${risky ? ' tagwarn' : ''}">${esc(t.flag)}</span>` : ''}${esc(from)}</i></span><span class="sz">${esc(size)}</span></button>`;
+}
+function openTool(i) {
+  const t = TOOLS[i], g = toolGuide(t);
+  const notes = [...g.notes, ...(TOOL_EXTRA[t.title] ? [TOOL_EXTRA[t.title]] : [])];
+  openSheet(`
+    <div class="label">${esc(t.cat)}${t.flag ? ' · ' + esc(t.flag) : ''}</div>
+    <h3>${esc(t.title)}</h3>
+    <p class="desc">${esc(g.about)}</p>
+    ${g.steps.length ? `<div class="label">安裝教學</div><ol class="install">${g.steps.map(s => `<li>${esc(s)}</li>`).join('')}</ol>` : ''}
+    ${notes.map(n => `<p class="desc"><b class="warnb">注意：</b>${esc(n)}</p>`).join('')}
+    <div class="label">檔案下載</div>
+    <div class="rows">${t.sources.map(s => `<div class="row"><span class="ic">${ICON.dl}</span><span class="v"><span>${s.link ? `<a href="${s.link}" target="_blank" rel="noopener">${esc(s.name)}</a>` : esc(s.name)}</span><span class="label">${esc(s.from)} · ${esc(s.size)}</span></span></div>`).join('')}</div>
+  `, { close: 'back' });
+}
+const toolsIn = c => TOOLS.filter(t => c === '全部' || t.cat === c);
+function renderPack() {
+  const cats = state.toolCat === '全部' ? TOOL_CATS : [state.toolCat];
+  $('pack').innerHTML = cats.map(c => [c, toolsIn(c)]).filter(([, l]) => l.length).map(([c, l]) => `<div class="pagehead">${esc(c)} · ${l.length}</div>${l.map(toolHTML).join('')}`).join('')
+    + `<p class="note">連結：整合包的檔案在你自己的雲端（<a class="dl" href="${P2.root}" target="_blank" rel="noopener">開啟整個資料夾</a>），賣家 2026 更新的檔案在賣家雲端。同一個工具有多個來源時合併成一項，點開可以看到每個檔案。</p>`;
+  $('status').textContent = `${state.toolCat === '全部' ? '所有分類' : state.toolCat} · ${toolsIn(state.toolCat).length} 項`;
+}
+
+function setView(v) {
+  state.view = v; save();
+  const pack = v === 'pack';
+  $('tabMods').setAttribute('aria-selected', !pack);
+  $('tabPack').setAttribute('aria-selected', pack);
+  $('list').hidden = pack; $('pack').hidden = !pack;
+  $('pageBtn').hidden = pack;
+  $('filterBtn').setAttribute('aria-label', pack ? '依分類篩選' : '依角色篩選');
+  window.scrollTo({ top: 0 });
+  if (pack) renderPack(); else render();
+}
+$('tabMods').addEventListener('click', () => setView('mods'));
+$('tabPack').addEventListener('click', () => setView('pack'));
+
+function render() {
+  const list = ALL.filter(a => (state.src === '全部' || a.src === state.src) && matchWho(a, state.who));
+  const groups = (state.who === '全部' ? CHARS : [state.who]).map(w => [w, list.filter(a => state.who === '全部' ? a.who.includes(w) : true)]).filter(([, l]) => l.length);
+  const bySlot = l => [...SLOT_ORDER, ...new Set(l.map(a => a.slot).filter(s => !SLOT_ORDER.includes(s)))].map(s => [s, l.filter(a => a.slot === s)]).filter(([, x]) => x.length);
+  $('list').innerHTML = groups.map(([w, l]) => `<div class="charhead">${esc(w)} · ${l.length}</div>${bySlot(l).map(([s, x]) => `<div class="pagehead">${esc(s)} · ${x.length}${x.length > 1 && s !== '未標示' && s !== '全部' ? ' · 一次只能裝一個' : ''}</div>${x.map(itemHTML).join('')}`).join('')}`).join('') || '<div class="empty">這個條件下沒有 MOD</div>';
+  $('pageBtn').textContent = state.src === '全部' ? '全部來源' : state.src;
+  $('status').textContent = `${state.who === '全部' ? '所有角色' : state.who} · ${list.length} 個`;
+}
+
+/* 封面輪播：取每頁第一個 MOD */
+const heroMods = [1, 2, 3, 4, 5, 6].map(p => MODS.find(m => m.page === p && m.imgs.length));
+let heroIdx = 0, heroTimer;
+function showHero(i) {
+  heroIdx = (i + heroMods.length) % heroMods.length;
+  const m = heroMods[heroIdx];
+  $('heroImg').src = m.imgs[0].src;
+  $('heroImg').alt = m.title;
+  $('heroT').textContent = '▍' + m.title;
+  $('heroP').textContent = m.desc;
+  [...$('dots').children].forEach((d, k) => d.setAttribute('aria-current', k === heroIdx));
+}
+$('dots').innerHTML = heroMods.map((m, k) => `<button aria-label="第 ${k + 1} 張"></button>`).join('');
+$('dots').addEventListener('click', e => { const k = [...$('dots').children].indexOf(e.target); if (k >= 0) { showHero(k); restartHero(); } });
+function restartHero() { clearInterval(heroTimer); if (!matchMedia('(prefers-reduced-motion: reduce)').matches) heroTimer = setInterval(() => showHero(heroIdx + 1), 5000); }
+$('hero').addEventListener('click', () => openMod(heroMods[heroIdx].n));
+$('hero').style.cursor = 'pointer';
+
+/* 面板 */
+function openSheet(html, { full = false, close = 'x', extra = '' } = {}) {
+  $('sheetBody').innerHTML = html;
+  $('sheetBody').scrollTop = 0;
+  $('sheetExtra').innerHTML = extra;
+  $('closeBtn').innerHTML = ICON[close];
+  $('sheet').classList.toggle('full', full);
+  $('scrim').hidden = false; $('sheet').hidden = false;
+  requestAnimationFrame(() => { $('scrim').classList.add('on'); $('sheet').classList.add('on'); });
+  document.body.style.overflow = 'hidden';
+}
+function closeSheet() {
+  $('scrim').classList.remove('on'); $('sheet').classList.remove('on');
+  document.body.style.overflow = '';
+  setTimeout(() => { if (!$('sheet').classList.contains('on')) { $('scrim').hidden = true; $('sheet').hidden = true; } }, 300);
+  if (location.hash) history.replaceState(null, '', location.pathname + location.search);
+}
+$('scrim').addEventListener('click', closeSheet);
+$('closeBtn').addEventListener('click', closeSheet);
+document.addEventListener('keydown', e => { if (e.key === 'Escape' && !$('sheet').hidden) closeSheet(); });
+
+function openMod(n) {
+  const m = MODS.find(x => x.n === n);
+  if (!m) return;
+  const shots = m.imgs.map((im, k) => `<img src="${im.src}" width="${im.w}" height="${im.h}" alt="${esc(m.title)} 截圖 ${k + 1}" loading="lazy">`).join('');
+  const dls = m.dl.map(([name, href]) => `<div class="row"><span class="ic">${ICON.dl}</span><span class="v"><span><a href="${esc(href)}" target="_blank" rel="noopener">${esc(href.split('/').pop())}</a></span><span class="label">${esc(name)}</span></span><button class="copy" data-copy="${esc(href)}">複製</button></div>`).join('');
+  openSheet(`
+    <div class="label">第 ${m.page} 頁 · 編號 ${m.n}</div>
+    <h3>${esc(m.title)}</h3>
+    <div class="shots">${shots}</div>
+    <div class="rows">
+      <div class="row"><span class="ic">${ICON.user}</span><span class="v"><span>${esc(m.who)}</span><span class="label">角色</span></span></div>
+      ${m.note ? `<div class="row"><span class="ic">${ICON.shirt}</span><span class="v"><span>${esc(m.note)}</span><span class="label">說明</span></span></div>` : ''}
+      <div class="row"><span class="ic">${ICON.link}</span><span class="v"><span><a href="${esc(m.url)}" target="_blank" rel="noopener">${esc(m.url.replace('https://', ''))}</a></span><span class="label">3DM 介紹頁</span></span></div>
+    </div>
+    <p class="desc">${esc(m.desc)}</p>
+    <div class="label">下載連結</div>
+    <div class="rows">${dls}</div>
+  `, { close: 'back' });
+  if (location.hash !== '#' + n) history.replaceState(null, '', '#' + n);
+}
+
+document.addEventListener('click', e => {
+  const tool = e.target.closest('[data-tool]');
+  if (tool) { openTool(+tool.dataset.tool); return; }
+  const dup = e.target.closest('.dupbtn');
+  if (dup) { openMod(+dup.dataset.n); return; }
+  const it = e.target.closest('.item');
+  if (it) { const a = ALL.find(x => x.key === it.dataset.key); if (a) a.open(); return; }
+  const c = e.target.closest('.copy');
+  if (c) {
+    const done = () => { c.textContent = '已複製'; setTimeout(() => c.textContent = '複製', 1500); };
+    const fallback = () => { const r = document.createRange(); r.selectNodeContents(c.previousElementSibling.querySelector('a')); getSelection().removeAllRanges(); getSelection().addRange(r); c.textContent = '已選取'; };
+    try { navigator.clipboard.writeText(c.dataset.copy).then(done, fallback); } catch (err) { fallback(); }
+  }
+});
+
+function optsHTML(items, current) {
+  return `<div class="opts">${items.map(([val, label, cnt]) => `<button class="opt" data-v="${esc(val)}" aria-pressed="${val == current}"><span class="mark">${val == current ? ICON.check : ''}</span>${esc(label)} <span class="cnt">${cnt}</span></button>`).join('')}</div>`;
+}
+
+$('filterBtn').addEventListener('click', () => {
+  if (state.view === 'pack') {
+    const items = ['全部', ...TOOL_CATS].map(c => [c, c === '全部' ? '所有分類' : c, toolsIn(c).length]).filter(x => x[2]);
+    openSheet(`<div class="label">分類</div>${optsHTML(items, state.toolCat)}`);
+    $('sheetBody').onclick = e => { const o = e.target.closest('.opt'); if (o) { state.toolCat = o.dataset.v; save(); renderPack(); closeSheet(); window.scrollTo({ top: $('pack').offsetTop - 80 }); } };
+    return;
+  }
+  const items = ['全部', ...CHARS].map(w => [w, w === '全部' ? '所有角色' : w, ALL.filter(a => matchWho(a, w)).length]).filter(x => x[2]);
+  openSheet(`<div class="label">角色</div>${optsHTML(items, state.who)}`);
+  $('sheetBody').onclick = e => { const o = e.target.closest('.opt'); if (o) { state.who = o.dataset.v; save(); render(); closeSheet(); } };
+});
+$('pageBtn').addEventListener('click', () => {
+  const items = SOURCES.map(s => [s, s === '全部' ? '全部來源' : s === '2026更新' ? '賣家 2026 更新' : s, s === '全部' ? ALL.length : ALL.filter(a => a.src === s).length]);
+  openSheet(`<div class="label">來源</div>${optsHTML(items, state.src)}`);
+  $('sheetBody').onclick = e => { const o = e.target.closest('.opt'); if (o) { state.src = o.dataset.v; save(); render(); closeSheet(); window.scrollTo({ top: $('list').offsetTop - 80 }); } };
+});
+$('searchBtn').addEventListener('click', () => {
+  openSheet(`<h3>搜尋</h3><div class="results" id="results"></div>`, {
+    full: true, close: 'back',
+    extra: `<label class="search"><input id="q" type="search" placeholder="輸入服裝、角色、工具名稱" autocomplete="off">${ICON.back.replace('M15 5l-7 7 7 7', 'M11 4.5a6.5 6.5 0 1 0 0 13a6.5 6.5 0 1 0 0-13M16 16l4.5 4.5')}</label>`
+  });
+  $('sheetBody').onclick = null;
+  const q = $('q');
+  q.addEventListener('input', () => {
+    const k = q.value.trim();
+    const hits = k ? ALL.filter(a => (a.title + a.who.join('') + a.slot + a.src).includes(k)) : [];
+    const th = k ? TOOLS.filter(t => (t.title + t.cat + (t.flag || '') + t.sources.map(s => s.name).join('')).toLowerCase().includes(k.toLowerCase())) : [];
+    $('results').innerHTML = k ? ((th.length ? `<div class="pagehead">存檔與工具 · ${th.length}</div>${th.map(toolHTML).join('')}` : '') + (hits.length ? `<div class="pagehead">服裝 · ${hits.length}</div>${hits.map(itemHTML).join('')}` : '') || '<div class="empty">找不到符合的項目</div>') : '';
+  });
+  setTimeout(() => q.focus(), 320);
+});
+$('infoBtn').addEventListener('click', () => {
+  openSheet(`<h3>安裝方式</h3>
+    <ol class="install">
+      <li>下載 MOD 檔案並解壓縮。</li>
+      <li>放到遊戲資料夾 <code>\\Steam\\steamapps\\common\\Expedition 33\\Sandfall\\Content\\Paks\\~mods</code>，沒有 <code>~mods</code> 資料夾就自己建一個。</li>
+      <li>啟動遊戲。</li>
+    </ol>
+    <p class="desc">另一種方式：用 Gloss Mod Manager 管理器，選擇《光與影：33 號遠征隊》後把 MOD 拖進去、勾選啟用。</p>
+    <p class="desc">資料來源：3DM 服裝 MOD 大全 ${MODS.length} 個、整合包 2.1 的 ${P2.costumes.length} 套、賣家雲端 2026 更新 ${SELLER.length} 套，共 ${ALL.length} 個，依角色分類。服裝依角色、再依替換的服裝部位排列；同一個部位標示「一次只能裝一個」的，代表那幾個 MOD 換的是同一件衣服。</p>`);
+  $('sheetBody').onclick = null;
+});
+
+setView(state.view === 'pack' ? 'pack' : 'mods');
+showHero(0);
+restartHero();
+const h = location.hash.slice(1);
+const ha = ALL.find(a => a.key === h);
+if (ha) ha.open();
+</script>
+
+</html>
